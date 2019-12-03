@@ -1,22 +1,27 @@
 import { createGlobalStyle } from 'styled-components'
 
-export default createGlobalStyle<{ background?: string }>`
-  html, body, #root {
-    height: 100vh;
-  }
-
-  body {
+export default createGlobalStyle`
+  html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background: ${(p) => p.background || '#fafafa'};
   }
-
-  svg * {
+  
+  * {
     font-family: 'Roboto', sans-serif;
   }
 
   a {
     text-decoration: none;
+    color: inherit;
+  }
+  
+  input {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active  {
+      transition-property: background-color, color;
+      transition-delay: 99999999999s;
+    }
   }
 `
