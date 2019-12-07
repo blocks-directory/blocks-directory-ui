@@ -1,4 +1,4 @@
-const PRIMARY = '#112B48'
+const PRIMARY = '#1D4E89'
 const SECONDARY = '#9e9e9e'
 
 export const light = {

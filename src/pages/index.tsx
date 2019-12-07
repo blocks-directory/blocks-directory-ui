@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Head from 'next/head'
 
 import { AppBarLayout } from '../components'
 
@@ -51,14 +50,9 @@ const Wrapper = styled.div`
   }
 `
 
-const Home = () => (
-  <AppBarLayout>
+export default () => (
+  <AppBarLayout title="Home">
     <Wrapper>
-      <Head>
-        <title>Home</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <div className="hero">
         <h1 className="title">Welcome to Next.js!</h1>
         <p className="description">
@@ -86,5 +80,3 @@ const Home = () => (
     </Wrapper>
   </AppBarLayout>
 )
-
-export default Home
