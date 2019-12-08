@@ -22,9 +22,12 @@ const HeaderButton = styled(ButtonLink)`
   font-weight: 500;
   text-transform: uppercase;
 `
+const LogoButton = styled(HeaderButton)`
+  padding: 0 16px 0 0;
+`
 const Logo = styled(FullLogo)`
   height: 50px;
-  width: 140px;
+  width: 170px;
 `
 const Flex = styled.div`
   flex: 1;
@@ -60,9 +63,9 @@ export const AppBarLayout = memo(({ children, title = '' }: ToolbarLayoutProps) 
       <StyledAppBar position="fixed">
         <Container>
           <StyledToolbar>
-            <HeaderButton href="/">
+            <LogoButton href="/">
               <Logo />
-            </HeaderButton>
+            </LogoButton>
             <Flex />
             <HeaderList>
               <Divider />
