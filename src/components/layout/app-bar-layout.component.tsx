@@ -1,11 +1,11 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
 import { AppBar, Toolbar, Container } from '@material-ui/core'
-
 import Head from 'next/head'
+
 import { ElevationScroll } from './elevation-scroll.component'
-import FullLogo from '../../svg/full-logo.svg'
 import { ButtonLink } from '../button-link.component'
+import FullLogo from '../../svg/full-logo.svg'
 
 const StyledAppBar = styled(AppBar)`
   background: ${(p) => p.theme.palette.primary.main} url("/header.png") center 0 no-repeat;
@@ -13,6 +13,7 @@ const StyledAppBar = styled(AppBar)`
 `
 const StyledToolbar = styled(Toolbar)`
   align-items: stretch;
+  padding: 0;
 `
 const HeaderButton = styled(ButtonLink)`
   color: white;
@@ -46,7 +47,7 @@ const Divider = styled.div`
 `
 
 interface ToolbarLayoutProps {
-  children: React.ReactElement
+  children: JSX.Element | JSX.Element []
   title?: string
 }
 
