@@ -37,7 +37,7 @@ export default () => {
   const projects = data?.findProjects || []
 
   return (
-    <AppBarLayout title="Home">
+    <AppBarLayout title="Search">
       <Wrapper>
         <TextField
           label="Search"
