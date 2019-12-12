@@ -14,7 +14,7 @@ import { findProjects as Projects } from '../graphql/queries/types/findProjects'
 const Wrapper = styled.div`
   padding: 20px 0;
 `
-const Content = styled.div`
+const NoContentHolder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,7 +37,7 @@ export default () => {
   const projects = data?.findProjects || []
 
   return (
-    <AppBarLayout title="Search">
+    <AppBarLayout title="Projects">
       <Wrapper>
         <TextField
           label="Search"
@@ -55,9 +55,12 @@ export default () => {
         />
         <FormControl />
         {loading && (
-          <Content>
+          <NoContentHolder>
             <CircularProgress />
-          </Content>
+          </NoContentHolder>
+        )}
+        {!loading && isEmpty(projects) && (
+          <NoContentHolder>0 projects found</NoContentHolder>
         )}
         {!loading && !isEmpty(projects) && (
           <ProjectList>
@@ -65,9 +68,6 @@ export default () => {
               <ProjectListCard key={project.id!} project={project} />
             ))}
           </ProjectList>
-        )}
-        {!loading && isEmpty(projects) && (
-          <Content>0 projects found</Content>
         )}
       </Wrapper>
     </AppBarLayout>

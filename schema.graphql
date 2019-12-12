@@ -11,11 +11,11 @@ type Mutation {
 
 type Project {
   description: String
-  id: String
-  lastCommitDate: String
-  name: String
+  id: String!
+  lastCommitDate: String!
+  name: String!
   openIssues: Int
-  platform: String
+  platform: String!
   provider: String
   pullRequests: Int
   readmeUrl: String
@@ -25,18 +25,19 @@ type Project {
 
 type ProjectListData {
   description: String
-  id: String
-  lastCommitDate: String
-  name: String
-  platform: String
+  id: String!
+  lastCommitDate: String!
+  name: String!
+  platform: String!
   provider: String
+  repositoryUrl: String!
   runtime: String
 }
 
 type ProjectPreviewData {
   description: String
-  lastCommitDate: String
-  name: String
+  lastCommitDate: String!
+  name: String!
   openIssues: Int
   platform: String
   provider: String

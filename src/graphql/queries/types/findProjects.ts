@@ -8,13 +8,14 @@
 
 export interface findProjects_findProjects {
   __typename: "ProjectListData";
-  id: string | null;
-  name: string | null;
+  id: string;
+  name: string;
   description: string | null;
-  platform: string | null;
+  platform: string;
   runtime: string | null;
   provider: string | null;
-  lastCommitDate: string | null;
+  lastCommitDate: string;
+  repositoryUrl: string;
 }
 
 export interface findProjects {

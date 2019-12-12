@@ -10,6 +10,7 @@ export const projectsList = gql`
       runtime
       provider
       lastCommitDate
+      repositoryUrl
     }
   }
 `
