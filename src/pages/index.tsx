@@ -11,7 +11,7 @@ export default () => (
   <AppBarLayout title="Home" fullPageContent>
     <TitleBlock>
       BLOCKS DIRECTORY
-      <TitleBlockBackground src="/title_block_background.png" />
+      <TitleBlockBackground />
     </TitleBlock>
     <Wrapper>
         Landing Goes Here

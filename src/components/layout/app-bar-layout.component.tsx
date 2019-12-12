@@ -8,8 +8,11 @@ import { ButtonLink } from '../button-link.component'
 import FullLogo from '../../svg/full-logo.svg'
 
 const StyledAppBar = styled(AppBar)`
-  background: ${(p) => p.theme.palette.primary.main} url("/header.png") center 0 no-repeat;
+  background: ${(p) => p.theme.palette.primary.main} url("/title_block_background.png") center 0 no-repeat;
   background-size: cover;
+`
+const StyledContainer = styled(Container)`
+  background: rgba(65, 65, 65, 0.12);
 `
 const StyledToolbar = styled(Toolbar)`
   align-items: stretch;
@@ -62,7 +65,7 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
     </Head>
     <ElevationScroll elevation={0}>
       <StyledAppBar position="fixed">
-        <Container>
+        <StyledContainer>
           <StyledToolbar>
             <LogoButton href="/">
               <Logo />
@@ -83,7 +86,7 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
               <Divider />
             </HeaderList>
           </StyledToolbar>
-        </Container>
+        </StyledContainer>
       </StyledAppBar>
     </ElevationScroll>
     <Content>
