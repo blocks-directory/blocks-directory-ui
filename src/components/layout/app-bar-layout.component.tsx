@@ -35,7 +35,7 @@ const Flex = styled.div`
 const Content = styled.main`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   min-height: 100vh;
 `
@@ -50,11 +50,12 @@ const Divider = styled.div`
 `
 
 interface ToolbarLayoutProps {
-  children: JSX.Element | JSX.Element []
+  children?: JSX.Element | JSX.Element []
   title?: string
+  fullPageContent?: boolean
 }
 
-export const AppBarLayout = memo(({ children, title = '' }: ToolbarLayoutProps) => (
+export const AppBarLayout = memo(({ children, title = '', fullPageContent }: ToolbarLayoutProps) => (
   <>
     <Head>
       <title>{title ? `${title} | Blocks Directory` : 'Blocks Directory'}</title>
@@ -85,8 +86,9 @@ export const AppBarLayout = memo(({ children, title = '' }: ToolbarLayoutProps) 
     <Content>
       <Container>
         <Toolbar />
-        {children}
+        {!fullPageContent && children}
       </Container>
+      {fullPageContent && children}
     </Content>
   </>
 ))

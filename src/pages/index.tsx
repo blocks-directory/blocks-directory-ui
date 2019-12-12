@@ -1,14 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { AppBarLayout } from '../components'
-
-const Wrapper = styled.div`
-  padding: 20px 0;
-`
+import {
+  Wrapper,
+  TitleBlock,
+  TitleBlockBackground,
+} from '../components/landing/landing.styles'
 
 export default () => (
-  <AppBarLayout title="Home">
+  <AppBarLayout title="Home" fullPageContent>
+    <TitleBlock>
+      BLOCKS DIRECTORY
+      <TitleBlockBackground src="/title_block_background.png" />
+    </TitleBlock>
     <Wrapper>
         Landing Goes Here
     </Wrapper>
