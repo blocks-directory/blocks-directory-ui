@@ -4,4 +4,7 @@ const SECONDARY = '#9e9e9e'
 export const light = {
   primary: { main: PRIMARY },
   secondary: { main: SECONDARY },
+  text: {
+    primary: '#00000',
+  },
 }
