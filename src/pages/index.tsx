@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import YouTube from 'react-youtube'
 import styled from 'styled-components'
+import Router from 'next/router'
 
 import { AppBarLayout } from '../components'
 import {
   Wrapper,
   TitleBlock,
-  TitleBlockBackground,
   ProjectName,
   TitleBlockContent,
   ProjectDescription,
@@ -25,6 +25,12 @@ const YouTubeVideo = styled(YouTube)`
 
 export default () => {
   const [query, setQuery] = useState('')
+  const goToSearch = useCallback(() => {
+    Router.push({
+      pathname: '/projects',
+      query: { query },
+    })
+  }, [query])
 
   return (
     <AppBarLayout title="Home" fullPageContent>
@@ -41,9 +47,17 @@ export default () => {
               <SearchBar
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter') {
+                    goToSearch()
+                  }
+                }}
               />
             </SearchBarWrapper>
-            <SearchButton variant="extended">
+            <SearchButton
+              variant="extended"
+              onClick={goToSearch}
+            >
               Search
             </SearchButton>
           </SearchRow>
@@ -55,7 +69,7 @@ export default () => {
             </EmbedContainer>
           </VideoBlock>
         </TitleBlockContent>
-        <TitleBlockBackground />
+        {/*<TitleBlockBackground />*/}
       </TitleBlock>
       <Wrapper>
         Landing Goes Here

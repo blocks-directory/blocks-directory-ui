@@ -2,8 +2,9 @@ import React from 'react'
 import { InputAdornment, TextField } from '@material-ui/core'
 import { Search } from 'react-feather'
 import styled from 'styled-components'
+import { OutlinedTextFieldProps } from '@material-ui/core/TextField/TextField'
 
-export interface SearchBarProps {
+export interface SearchBarProps extends Partial<OutlinedTextFieldProps> {
   value?: string
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>
 }
@@ -25,7 +26,7 @@ const StyledTextField = styled(TextField)`
   background: white;
 `
 
-export const SearchBar = ({ value, onChange }: SearchBarProps) => {
+export const SearchBar = ({ value, onChange, ...rest }: SearchBarProps) => {
   return (
     <StyledTextField
       variant="outlined"
@@ -45,6 +46,7 @@ export const SearchBar = ({ value, onChange }: SearchBarProps) => {
           </InputAdornment>
         ),
       }}
+      {...rest}
     />
   )
 }

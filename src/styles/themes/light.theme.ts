@@ -5,6 +5,6 @@ export const light = {
   primary: { main: PRIMARY },
   secondary: { main: SECONDARY },
   text: {
-    primary: '#00000',
+    primary: '#000000',
   },
 }

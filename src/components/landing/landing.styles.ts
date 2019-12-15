@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { Typography } from '@material-ui/core'
-import { Fab } from '@material-ui/core'
+import { Typography, Fab } from '@material-ui/core'
 
 export const Wrapper = styled.div`
   padding: 20px 0;
@@ -20,7 +19,7 @@ export const TitleBlockBackground = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 80vh;
+  height: 100%;
   min-height: 930px;
   background: ${(p) => p.theme.palette.primary.main} url("/title_block_background.png") center 0 no-repeat;
   background-size: cover;
@@ -39,6 +38,7 @@ export const SearchBarWrapper = styled.div`
 `
 
 export const TitleBlockContent = styled.div`
+  background: linear-gradient(322.36deg, #01E1F7 0.58%, #203BDD 112.86%);
   position: absolute;
   left: 0;
   top: 0;
@@ -70,6 +70,15 @@ export const SearchRow = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: 900px;
+  @media (max-width: 650px) {
+    margin-bottom: 200px;
+  }
+  @media (min-width: 651px) {
+    margin-bottom: 300px;
+  }
+  @media (max-width: 400px) {
+    margin-bottom: 100px;
+  }
 `
 
 export const SearchButton = styled(Fab)`
@@ -87,11 +96,13 @@ export const SearchButton = styled(Fab)`
 `
 
 export const VideoBlock = styled.div`
+  position: absolute;
+  bottom: 0;
+  transform: translateY(50%); 
   background: linear-gradient(180deg, #FFFFFF -28.01%, #D9E8FF 250.27%);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   max-width: 720px;
-  width: 100%;
-  margin-top: 150px;
+  width: calc(100% - 40px);
 `
 
 export const EmbedContainer = styled.div`

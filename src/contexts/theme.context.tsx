@@ -31,9 +31,6 @@ const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
 
   const theme = useMemo(() => createMuiTheme({
     palette: {
-      root: {
-        color: '#000000',
-      },
       type: includes(themes, themeType) ? themeType : 'light',
       ...styles,
     },
