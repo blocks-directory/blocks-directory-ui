@@ -89,7 +89,7 @@ export const SearchButton = styled(Fab)`
 export const VideoBlock = styled.div`
   background: linear-gradient(180deg, #FFFFFF -28.01%, #D9E8FF 250.27%);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  max-width: 560px;
+  max-width: 720px;
   width: 100%;
   margin-top: 150px;
 `
