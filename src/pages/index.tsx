@@ -74,7 +74,7 @@ export default () => {
             </EmbedContainer>
           </VideoBlock>
         </TitleBlockContent>
-        {/*<TitleBlockBackground />*/}
+        {/* <TitleBlockBackground /> */}
       </TitleBlock>
       <FeaturesBlock>
         <Features>

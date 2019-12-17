@@ -26,27 +26,25 @@ const StyledTextField = styled(TextField)`
   background: white;
 `
 
-export const SearchBar = ({ value, onChange, ...rest }: SearchBarProps) => {
-  return (
-    <StyledTextField
-      variant="outlined"
-      margin="dense"
-      fullWidth
-      value={value}
-      onChange={onChange}
-      style={{
-        borderRadius: '10px',
-        fontSize: '18px',
-      }}
-      placeholder="Search services"
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <Search color="#9A9DAD" size={28} />
-          </InputAdornment>
-        ),
-      }}
-      {...rest}
-    />
-  )
-}
+export const SearchBar = ({ value, onChange, ...rest }: SearchBarProps) => (
+  <StyledTextField
+    variant="outlined"
+    margin="dense"
+    fullWidth
+    value={value}
+    onChange={onChange}
+    style={{
+      borderRadius: '10px',
+      fontSize: '18px',
+    }}
+    placeholder="Search services"
+    InputProps={{
+      startAdornment: (
+        <InputAdornment position="start">
+          <Search color="#9A9DAD" size={28} />
+        </InputAdornment>
+      ),
+    }}
+    {...rest}
+  />
+)

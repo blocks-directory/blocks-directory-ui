@@ -4,7 +4,7 @@ import { useDebounce } from 'react-use'
 import { InputAdornment, TextField, FormControl, CircularProgress } from '@material-ui/core'
 import { useQuery } from '@apollo/client'
 import { isEmpty, map, get } from 'lodash-es'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 import SearchIcon from '@material-ui/icons/Search'
 
