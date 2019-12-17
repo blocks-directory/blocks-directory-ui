@@ -9,11 +9,8 @@ export const TitleBlock = styled.div`
   margin-top: -64px;
   width: 100%;
   background: white;
-  max-height: 30vh;
   background-size: cover;
-  position: relative;
 `
-
 export const TitleBlockBackground = styled.div`
   position: absolute;
   left: 0;
@@ -38,11 +35,8 @@ export const SearchBarWrapper = styled.div`
 `
 
 export const TitleBlockContent = styled.div`
+  position: relative;
   background: linear-gradient(322.36deg, #01E1F7 0.58%, #203BDD 112.86%);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 2;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -118,4 +112,78 @@ export const EmbedContainer = styled.div`
     width: 100%; 
     height: 100%;
   }
+`
+
+export const FeaturesBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: url("/white-background.svg") center 0 no-repeat;
+  background-size: cover;
+`
+
+export const Features = styled.div`
+  color: #333333;
+  background: url("/features.svg") center 0 no-repeat;
+  background-size: cover;
+  max-width: 570px;
+  width: 100%;
+  height: 88px;
+  font-weight: bold;
+  font-size: 36px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 650px) {
+    margin-top: 200px;
+  }
+  @media (min-width: 651px) {
+    margin-top: 300px;
+  }
+  @media (max-width: 400px) {
+    margin-top: 100px;
+  }
+  margin-bottom: 100px;
+  @media (max-width: 950px) {
+    margin-bottom: 40px;
+  }
+`
+
+export const ReusingBlock = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 900px;
+  width: 100%;
+  margin-bottom: 150px;
+  justify-content: space-between;
+  @media (max-width: 950px) {
+    flex-direction: column-reverse;
+  }
+`
+
+export const ReusingLeftBlock = styled.div`
+  @media (min-width: 951px) {
+    max-width: 650px;
+  }
+  margin: 0 10px;
+`
+
+export const ReusingTitle = styled.div`
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #333333;
+`
+
+export const ReusingText = styled.div`
+  font-size: 24px;
+  color: #333333;
+`
+
+export const ReusingIcon = styled.img`
+  @media (max-width: 950px) {
+    margin-bottom: 40px;
+  }
+  margin: 0 10px;
 `

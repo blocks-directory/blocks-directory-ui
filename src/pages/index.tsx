@@ -5,7 +5,6 @@ import Router from 'next/router'
 
 import { AppBarLayout } from '../components'
 import {
-  Wrapper,
   TitleBlock,
   ProjectName,
   TitleBlockContent,
@@ -15,6 +14,12 @@ import {
   SearchButton,
   VideoBlock,
   EmbedContainer,
+  FeaturesBlock,
+  Features,
+  ReusingBlock,
+  ReusingLeftBlock,
+  ReusingTitle,
+  ReusingText, ReusingIcon,
 } from '../components/landing/landing.styles'
 import { SearchBar } from '../components/search-bar/search-bar.component'
 
@@ -71,9 +76,24 @@ export default () => {
         </TitleBlockContent>
         {/*<TitleBlockBackground />*/}
       </TitleBlock>
-      <Wrapper>
-        Landing Goes Here
-      </Wrapper>
+      <FeaturesBlock>
+        <Features>
+          Features
+        </Features>
+        <ReusingBlock>
+          <ReusingLeftBlock>
+            <ReusingTitle>
+              Save time by reusing the microservices
+            </ReusingTitle>
+            <ReusingText>
+              Microservices are isolated, and that’s what makes them easy to reuse.
+              Solve your problem with a ready-made microservice
+              and use saved time to do meaningful work.
+            </ReusingText>
+          </ReusingLeftBlock>
+          <ReusingIcon src="/download-microservice.svg" />
+        </ReusingBlock>
+      </FeaturesBlock>
     </AppBarLayout>
   )
 }
