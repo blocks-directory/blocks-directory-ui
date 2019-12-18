@@ -74,7 +74,10 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
       <title>{title ? `${title} | Blocks Directory` : 'Blocks Directory'}</title>
     </Head>
     <ElevationScroll elevation={0}>
-      <StyledAppBar position="fixed" transparent={fullPageContent}>
+      <StyledAppBar
+        position={fullPageContent ? 'absolute' : 'fixed'}
+        transparent={fullPageContent}
+      >
         <Container>
           <StyledToolbar>
             <LogoButton href="/">

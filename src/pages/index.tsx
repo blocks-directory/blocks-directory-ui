@@ -16,10 +16,15 @@ import {
   EmbedContainer,
   FeaturesBlock,
   Features,
-  ReusingBlock,
-  ReusingLeftBlock,
-  ReusingTitle,
-  ReusingText, ReusingIcon,
+  FeatureBlock,
+  FeatureLeftBlock,
+  FeatureTitle,
+  FeatureDescription,
+  FeatureIcon,
+  BlueBackgroundFeature,
+  FeatureDescriptionWhite,
+  FeatureTitleWhite,
+  DownloadMicroserviceIcon, WhiteBackgroundFeature, ShareMicroservicesIcon,
 } from '../components/landing/landing.styles'
 import { SearchBar } from '../components/search-bar/search-bar.component'
 
@@ -80,20 +85,50 @@ export default () => {
         <Features>
           Features
         </Features>
-        <ReusingBlock>
-          <ReusingLeftBlock>
-            <ReusingTitle>
+        <FeatureBlock>
+          <FeatureLeftBlock>
+            <FeatureTitle>
               Save time by reusing the microservices
-            </ReusingTitle>
-            <ReusingText>
+            </FeatureTitle>
+            <FeatureDescription>
               Microservices are isolated, and that’s what makes them easy to reuse.
               Solve your problem with a ready-made microservice
               and use saved time to do meaningful work.
-            </ReusingText>
-          </ReusingLeftBlock>
-          <ReusingIcon src="/download-microservice.svg" />
-        </ReusingBlock>
+            </FeatureDescription>
+          </FeatureLeftBlock>
+          <DownloadMicroserviceIcon src="/download-microservice.svg" />
+        </FeatureBlock>
       </FeaturesBlock>
+      <BlueBackgroundFeature>
+        <FeatureBlock>
+          <FeatureLeftBlock>
+            <FeatureTitleWhite>
+              Bringing the communities together
+            </FeatureTitleWhite>
+            <FeatureDescriptionWhite>
+              Microservices communicate through APIs.
+              That makes it easy to use services written in
+              different languages and technologies.
+            </FeatureDescriptionWhite>
+          </FeatureLeftBlock>
+          <FeatureIcon src="/communities-together.svg" />
+        </FeatureBlock>
+      </BlueBackgroundFeature>
+      <WhiteBackgroundFeature>
+        <FeatureBlock>
+          <FeatureLeftBlock>
+            <FeatureTitle>
+              Give back by contributing
+            </FeatureTitle>
+            <FeatureDescription>
+              Share your own microservices or contribute to
+              the projects shared by others to make
+              them better for everyone.
+            </FeatureDescription>
+          </FeatureLeftBlock>
+          <ShareMicroservicesIcon src="/share-microservices.svg" />
+        </FeatureBlock>
+      </WhiteBackgroundFeature>
     </AppBarLayout>
   )
 }

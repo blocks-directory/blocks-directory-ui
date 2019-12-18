@@ -147,10 +147,10 @@ export const Features = styled.div`
   }
 `
 
-export const ReusingBlock = styled.div`
+export const FeatureBlock = styled.div`
   display: flex;
   flex-direction: row;
-  max-width: 900px;
+  max-width: 1000px;
   width: 100%;
   margin-bottom: 150px;
   justify-content: space-between;
@@ -159,27 +159,59 @@ export const ReusingBlock = styled.div`
   }
 `
 
-export const ReusingLeftBlock = styled.div`
+export const BlueBackgroundFeature = styled.div`
+  background: linear-gradient(322.36deg, #01E1F7 0.58%, #203BDD 112.86%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 150px 20px 0 20px;
+`
+
+export const WhiteBackgroundFeature = styled(BlueBackgroundFeature)`
+  background: linear-gradient(180deg, #FFFFFF 10.82%, #D9E8FF 150.43%), #ECF3FF;  
+`
+
+export const FeatureLeftBlock = styled.div`
   margin: 0 10px;
   @media (min-width: 951px) {
     max-width: 650px;
   }
 `
 
-export const ReusingTitle = styled.div`
+export const FeatureTitle = styled.div`
   font-size: 36px;
   margin-bottom: 40px;
   color: #333333;
 `
 
-export const ReusingText = styled.div`
+export const FeatureTitleWhite = styled(FeatureTitle)`
+  color: white;
+`
+
+export const FeatureDescription = styled.div`
   font-size: 24px;
   color: #333333;
 `
 
-export const ReusingIcon = styled.img`
+export const FeatureDescriptionWhite = styled(FeatureDescription)`
+  color: white;
+`
+
+export const FeatureIcon = styled.img`
   margin: 0 10px;
   @media (max-width: 950px) {
     margin-bottom: 40px;
   }
+`
+
+export const DownloadMicroserviceIcon = styled(FeatureIcon)`
+  margin: 0 10px;
+  padding: 0 62px;
+`
+
+export const ShareMicroservicesIcon = styled(FeatureIcon)`
+  margin: 0 10px;
+  padding: 0 62px;
 `
