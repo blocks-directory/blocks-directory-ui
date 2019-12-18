@@ -154,6 +154,7 @@ export const FeatureBlock = styled.div`
   width: 100%;
   margin-bottom: 150px;
   justify-content: space-between;
+  align-items: center;
   @media (max-width: 950px) {
     flex-direction: column-reverse;
   }
