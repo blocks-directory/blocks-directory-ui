@@ -34,6 +34,18 @@ const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
       type: includes(themes, themeType) ? themeType : 'light',
       ...styles,
     },
+    typography: {
+      fontFamily: ['Quicksand', 'Segoe UI', '"sans-serif normal"'].join(','),
+      h2: {
+        fontWeight: 'bold',
+        fontSize: '32px',
+        textTransform: 'uppercase',
+      },
+      h4: {
+        fontWeight: 500,
+        fontSize: '32px',
+      },
+    },
   }), [styles, themeType])
 
   const toggleTheme = useCallback(() => {

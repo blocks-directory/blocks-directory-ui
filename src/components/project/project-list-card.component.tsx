@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Card, Chip, IconButton, Typography } from '@material-ui/core'
 import { DateTime } from 'luxon'
-import { capitalize } from 'lodash-es'
+import { capitalize, upperCase } from 'lodash-es'
 
 import GitHubIcon from '@material-ui/icons/GitHub'
 
@@ -50,7 +50,7 @@ export const ProjectListCard = ({ project }: ProjectListCardProps) => (
         <Tags>
           <Tag label={capitalize(project.platform!)} />
           <Tag label={capitalize(project.runtime!)} />
-          <Tag label={capitalize(project.provider!)} />
+          <Tag label={upperCase(project.provider!)} />
         </Tags>
         <Typography color="textSecondary" variant="caption">
           Last commit {DateTime.fromISO(project.lastCommitDate!).toRelative()}

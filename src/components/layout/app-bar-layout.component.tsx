@@ -7,8 +7,21 @@ import { ElevationScroll } from './elevation-scroll.component'
 import { ButtonLink } from '../button-link.component'
 import FullLogo from '../../svg/full-logo.svg'
 
-const StyledAppBar = styled(AppBar)`
-  background: ${(p) => p.theme.palette.primary.main} url("/header.png") center 0 no-repeat;
+interface AppBarProps {
+  transparent?: boolean
+  theme: any
+}
+
+const getAppBarBackground = (p: AppBarProps) => {
+  if (p.transparent) {
+    return 'background: rgba(65, 65, 65, 0.12)'
+  }
+
+  return `background: ${p.theme.palette.primary.main} url("/title_block_background.png") center 0 no-repeat`
+}
+
+const StyledAppBar = styled(({ transparent, ...props }) => <AppBar {...props} />)<AppBarProps>`
+  ${getAppBarBackground};
   background-size: cover;
 `
 const StyledToolbar = styled(Toolbar)`
@@ -35,7 +48,7 @@ const Flex = styled.div`
 const Content = styled.main`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   min-height: 100vh;
 `
@@ -50,17 +63,18 @@ const Divider = styled.div`
 `
 
 interface ToolbarLayoutProps {
-  children: JSX.Element | JSX.Element []
+  children?: JSX.Element | JSX.Element []
   title?: string
+  fullPageContent?: boolean
 }
 
-export const AppBarLayout = memo(({ children, title = '' }: ToolbarLayoutProps) => (
+export const AppBarLayout = memo(({ children, title = '', fullPageContent }: ToolbarLayoutProps) => (
   <>
     <Head>
       <title>{title ? `${title} | Blocks Directory` : 'Blocks Directory'}</title>
     </Head>
     <ElevationScroll elevation={0}>
-      <StyledAppBar position="fixed">
+      <StyledAppBar position="fixed" transparent={fullPageContent}>
         <Container>
           <StyledToolbar>
             <LogoButton href="/">
@@ -76,6 +90,10 @@ export const AppBarLayout = memo(({ children, title = '' }: ToolbarLayoutProps) 
                 Add Project
               </HeaderButton>
               <Divider />
+              <HeaderButton href="/blog">
+                Blog
+              </HeaderButton>
+              <Divider />
               <HeaderButton href="/about">
                 About
               </HeaderButton>
@@ -88,8 +106,9 @@ export const AppBarLayout = memo(({ children, title = '' }: ToolbarLayoutProps) 
     <Content>
       <Container>
         <Toolbar />
-        {children}
+        {!fullPageContent && children}
       </Container>
+      {fullPageContent && children}
     </Content>
   </>
 ))

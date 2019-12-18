@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { useDebounce } from 'react-use'
 import { InputAdornment, TextField, FormControl, CircularProgress } from '@material-ui/core'
 import { useQuery } from '@apollo/client'
-import { isEmpty, map } from 'lodash-es'
+import { isEmpty, map, get } from 'lodash-es'
+import { useRouter } from 'next/router'
 
 import SearchIcon from '@material-ui/icons/Search'
 
@@ -27,12 +28,16 @@ const ProjectList = styled.div`
 `
 
 export default () => {
-  const [query, setQuery] = useState('')
-  const [debouncedQuery, setDebouncedQuery] = React.useState(query)
+  const router = useRouter()
+  const debouncedQuery = get(router, 'query.query', '')
+  const [query, setQuery] = useState(get(router, 'query.query', ''))
   const { data, loading } = useQuery<Projects>(projectsList,
     { variables: { query: debouncedQuery }, fetchPolicy: 'network-only' })
 
-  useDebounce(() => setDebouncedQuery(query), 300, [query])
+  useDebounce(() => router.replace({
+    pathname: '/projects',
+    query: { query },
+  }), 300, [query])
 
   const projects = data?.findProjects || []
 
