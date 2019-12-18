@@ -64,11 +64,9 @@ export const SearchRow = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: 900px;
+  margin-bottom: 300px;
   @media (max-width: 650px) {
     margin-bottom: 200px;
-  }
-  @media (min-width: 651px) {
-    margin-bottom: 300px;
   }
   @media (max-width: 400px) {
     margin-bottom: 100px;
@@ -136,18 +134,16 @@ export const Features = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media (max-width: 650px) {
-    margin-top: 200px;
-  }
-  @media (min-width: 651px) {
-    margin-top: 300px;
-  }
-  @media (max-width: 400px) {
-    margin-top: 100px;
-  }
+  margin-top: 300px;
   margin-bottom: 100px;
   @media (max-width: 950px) {
     margin-bottom: 40px;
+  }
+  @media (max-width: 650px) {
+    margin-top: 200px;
+  }
+  @media (max-width: 400px) {
+    margin-top: 100px;
   }
 `
 
@@ -164,10 +160,10 @@ export const ReusingBlock = styled.div`
 `
 
 export const ReusingLeftBlock = styled.div`
+  margin: 0 10px;
   @media (min-width: 951px) {
     max-width: 650px;
   }
-  margin: 0 10px;
 `
 
 export const ReusingTitle = styled.div`
@@ -182,8 +178,8 @@ export const ReusingText = styled.div`
 `
 
 export const ReusingIcon = styled.img`
+  margin: 0 10px;
   @media (max-width: 950px) {
     margin-bottom: 40px;
   }
-  margin: 0 10px;
 `
