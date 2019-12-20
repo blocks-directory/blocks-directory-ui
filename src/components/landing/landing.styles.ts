@@ -52,7 +52,7 @@ export const ProjectName = styled(Typography)`
 
 export const ProjectDescription = styled(Typography)`
   color: white;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   text-align: center;
 `
 
@@ -157,6 +157,7 @@ export const FeatureBlock = styled.div`
   align-items: center;
   @media (max-width: 950px) {
     flex-direction: column-reverse;
+    margin-bottom: 50px
   }
 `
 
@@ -168,6 +169,9 @@ export const BlueBackgroundFeature = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 150px 20px 0 20px;
+  @media (max-width: 950px) {
+    padding: 50px 20px 0 20px;
+  }
 `
 
 export const WhiteBackgroundFeature = styled(BlueBackgroundFeature)`
