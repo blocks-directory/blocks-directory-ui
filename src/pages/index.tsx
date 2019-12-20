@@ -3,8 +3,8 @@ import YouTube from 'react-youtube'
 import styled from 'styled-components'
 import Router from 'next/router'
 
-import { AppBarLayout } from '../components'
 import {
+  AppBarLayout,
   TitleBlock,
   ProjectName,
   TitleBlockContent,
@@ -24,9 +24,14 @@ import {
   BlueBackgroundFeature,
   FeatureDescriptionWhite,
   FeatureTitleWhite,
-  DownloadMicroserviceIcon, WhiteBackgroundFeature, ShareMicroservicesIcon,
-} from '../components/landing/landing.styles'
-import { SearchBar } from '../components/search-bar/search-bar.component'
+  DownloadMicroserviceIcon,
+  WhiteBackgroundFeature,
+  ShareMicroservicesIcon,
+  CommunityHeader,
+  Stars, SocialButtons, Email,
+  SocialButton,
+  SearchBar,
+} from '../components'
 
 const YouTubeVideo = styled(YouTube)`
   width: 100%;
@@ -46,6 +51,7 @@ export default () => {
     <AppBarLayout title="Home" fullPageContent>
       <TitleBlock>
         <TitleBlockContent>
+          <Stars />
           <ProjectName variant="h2">
             Blocks Directory
           </ProjectName>
@@ -100,6 +106,7 @@ export default () => {
         </FeatureBlock>
       </FeaturesBlock>
       <BlueBackgroundFeature>
+        <Stars />
         <FeatureBlock>
           <FeatureLeftBlock>
             <FeatureTitleWhite>
@@ -129,6 +136,17 @@ export default () => {
           <ShareMicroservicesIcon src="/share-microservices.svg" />
         </FeatureBlock>
       </WhiteBackgroundFeature>
+      <BlueBackgroundFeature>
+        <CommunityHeader>
+          Join the community
+        </CommunityHeader>
+        <SocialButtons>
+          <SocialButton icon="/slack.svg" url="https://google.com" />
+        </SocialButtons>
+        <Email>
+          Have more questions? Contact us at <a href="mailto:contact@blocks.directory">contact@blocks.directory</a>
+        </Email>
+      </BlueBackgroundFeature>
     </AppBarLayout>
   )
 }

@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
 export const TitleBlock = styled.div`
   margin-top: -64px;
   width: 100%;
-  background: white;
   background-size: cover;
 `
 export const TitleBlockBackground = styled.div`
@@ -25,6 +24,16 @@ export const TitleBlockBackground = styled.div`
   @media (max-width: 800px) {
     clip-path: ellipse(170% 90% at top);
   }
+`
+
+export const Stars = styled.div`
+  background: url('/stars.svg') center 0 no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 `
 
 export const SearchBarWrapper = styled.div`
@@ -79,7 +88,7 @@ export const SearchButton = styled(Fab)`
   font-weight: bold;
   font-size: 24px;
   box-shadow: 0 4px 12px rgba(23, 20, 43, 0.2);
-  background: linear-gradient(94.33deg, #03C6FB -36.65%, #2FF6F5 99.37%);
+  background: linear-gradient(94.33deg, #03C6FB -36.65%, #2FF6F5 99.37%) ;
   text-shadow: 0 2px 4px rgba(0, 26, 94, 0.38);
   letter-spacing: 2px;
   border-radius: 45px;
@@ -92,7 +101,7 @@ export const VideoBlock = styled.div`
   bottom: 0;
   transform: translateY(50%); 
   background: linear-gradient(180deg, #FFFFFF -28.01%, #D9E8FF 250.27%);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 4px rgba(100, 129, 170, 0.18), 0px 35px 50px rgba(92, 131, 192, 0.2);
   max-width: 720px;
   width: calc(100% - 40px);
 `
@@ -162,6 +171,7 @@ export const FeatureBlock = styled.div`
 `
 
 export const BlueBackgroundFeature = styled.div`
+  position: relative;
   background: linear-gradient(322.36deg, #01E1F7 0.58%, #203BDD 112.86%);
   width: 100%;
   display: flex;
@@ -219,4 +229,27 @@ export const DownloadMicroserviceIcon = styled(FeatureIcon)`
 export const ShareMicroservicesIcon = styled(FeatureIcon)`
   margin: 0 10px;
   padding: 0 62px;
+`
+
+export const CommunityHeader = styled.div`
+  font-weight: 500;
+  font-size: 36px;
+  color: #FFFFFF;
+  margin-bottom: 40px;
+`
+
+export const SocialButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+`
+
+export const Email = styled.div`
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-bottom: 150px;
+  @media (max-width: 950px) {
+    margin-bottom: 50px;
+  }
 `
