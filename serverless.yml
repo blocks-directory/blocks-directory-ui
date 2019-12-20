@@ -2,3 +2,5 @@
 
 myNextApplication:
   component: serverless-next.js
+  inputs:
+    domain: ["dev", "blocks.directory"]
