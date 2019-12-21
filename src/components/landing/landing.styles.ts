@@ -28,6 +28,7 @@ export const TitleBlockBackground = styled.div`
 
 export const Stars = styled.div`
   background: url('/stars.svg') center 0 no-repeat;
+  transition: all 1000ms linear;
   background-size: cover;
   position: absolute;
   left: 0;
@@ -88,7 +89,7 @@ export const SearchButton = styled(Fab)`
   font-weight: bold;
   font-size: 24px;
   box-shadow: 0 4px 12px rgba(23, 20, 43, 0.2);
-  background: linear-gradient(94.33deg, #03C6FB -36.65%, #2FF6F5 99.37%) ;
+  background: linear-gradient(94.33deg, #03C6FB -36.65%, #2FF6F5 99.37%);
   text-shadow: 0 2px 4px rgba(0, 26, 94, 0.38);
   letter-spacing: 2px;
   border-radius: 45px;
