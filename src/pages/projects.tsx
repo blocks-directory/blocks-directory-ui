@@ -33,7 +33,7 @@ const ProjectsPage = () => {
   const debouncedQuery = get(router, 'query.query', '')
   const [query, setQuery] = useState(get(router, 'query.query', ''))
   const { data, loading } = useQuery<Projects>(projectsList,
-    { variables: { query: debouncedQuery }, fetchPolicy: 'network-only' })
+    { variables: { query: debouncedQuery } })
 
   useDebounce(() => router.replace({
     pathname: '/projects',
