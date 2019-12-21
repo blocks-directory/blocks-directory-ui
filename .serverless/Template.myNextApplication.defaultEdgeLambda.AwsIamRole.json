@@ -2,8 +2,8 @@
   "name": "s53z4xi-yqjvzlj",
   "arn": "arn:aws:iam::537011205135:role/s53z4xi-yqjvzlj",
   "service": [
-    "lambda.amazonaws.com",
-    "edgelambda.amazonaws.com"
+    "edgelambda.amazonaws.com",
+    "lambda.amazonaws.com"
   ],
   "policy": {
     "arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
