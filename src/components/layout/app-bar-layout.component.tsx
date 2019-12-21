@@ -17,7 +17,7 @@ const getAppBarBackground = (p: AppBarProps) => {
     return 'background: rgba(65, 65, 65, 0.12)'
   }
 
-  return `background: ${p.theme.palette.primary.main} url("/title_block_background.png") center 0 no-repeat`
+  return `background: ${p.theme.palette.primary.main} url("/app_bar_bg.png") center 0 no-repeat`
 }
 
 const StyledAppBar = styled(({ transparent, ...props }) => <AppBar {...props} />)<AppBarProps>`
