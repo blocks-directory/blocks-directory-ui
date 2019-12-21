@@ -1,0 +1,13 @@
+{
+  "region": "us-east-1",
+  "privateZone": false,
+  "domain": "blocks.directory",
+  "subdomains": [
+    {
+      "domain": "dev.blocks.directory",
+      "distributionId": "E37MXSB5KEEEB8",
+      "url": "https://d2ot1jih5cuofi.cloudfront.net",
+      "type": "awsCloudFront"
+    }
+  ]
+}
