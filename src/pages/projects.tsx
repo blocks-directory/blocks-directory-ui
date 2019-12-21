@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useDebounce } from 'react-use'
 import { InputAdornment, TextField, FormControl, CircularProgress } from '@material-ui/core'
-import { useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/react-hooks'
 import { isEmpty, map, get } from 'lodash-es'
 import { useRouter } from 'next/router'
 
@@ -11,6 +11,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import { AppBarLayout, ProjectListCard } from '../components'
 import { projectsList } from '../graphql'
 import { findProjects as Projects } from '../graphql/queries/types/findProjects'
+import { withApollo } from '../lib/apollo'
 
 const Wrapper = styled.div`
   padding: 20px 0;
@@ -27,7 +28,7 @@ const ProjectList = styled.div`
   margin-top: 20px;
 `
 
-export default () => {
+const ProjectsPage = () => {
   const router = useRouter()
   const debouncedQuery = get(router, 'query.query', '')
   const [query, setQuery] = useState(get(router, 'query.query', ''))
@@ -78,3 +79,5 @@ export default () => {
     </AppBarLayout>
   )
 }
+
+export default withApollo(ProjectsPage)
