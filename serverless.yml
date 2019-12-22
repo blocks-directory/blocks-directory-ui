@@ -1,6 +1,6 @@
-# serverless.yml
-
-myNextApplication:
+blocksDirectoryUi:
   component: serverless-next.js
   inputs:
-    domain: ["dev", "blocks.directory"]
+    domain:
+      - ${env.subdomain}
+      - ${env.domain}
