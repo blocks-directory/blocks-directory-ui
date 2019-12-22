@@ -26,17 +26,6 @@ export const TitleBlockBackground = styled.div`
   }
 `
 
-export const Stars = styled.div`
-  background: url('/stars.svg') center 0 no-repeat;
-  transition: all 1000ms linear;
-  background-size: cover;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-`
-
 export const SearchBarWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -144,8 +133,8 @@ export const Features = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 300px;
-  margin-bottom: 100px;
+  margin-top: 275px;
+  margin-bottom: 75px;
   @media (max-width: 950px) {
     margin-bottom: 40px;
   }
