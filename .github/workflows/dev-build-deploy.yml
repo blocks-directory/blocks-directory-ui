@@ -19,14 +19,10 @@ jobs:
         run: yarn lint
       - name: tsc
         run: yarn tsc
-      - name: tests
-        run: CI=true yarn test --passWithNoTests
-      - name: build project
-        run: yarn build
-      - name: build storybook
-        run: yarn build-storybook
-      - name: deploy the build
+      - name: dev deploy
+        uses: serverless/github-action@master
+        with:
+          args: --stage=dev
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: yarn deployDev
