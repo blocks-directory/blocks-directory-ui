@@ -3,7 +3,7 @@ name: dev-build-deploy
 on:
   push:
     branches:
-      - master
+      - landing-page]
 
 jobs:
   build:
