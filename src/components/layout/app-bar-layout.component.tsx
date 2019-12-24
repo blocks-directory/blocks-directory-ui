@@ -17,7 +17,7 @@ const getAppBarBackground = (p: AppBarProps) => {
     return 'background: rgba(65, 65, 65, 0.12)'
   }
 
-  return `background: ${p.theme.palette.primary.main} url("/title_block_background.png") center 0 no-repeat`
+  return `background: ${p.theme.palette.primary.main} url("/app_bar_bg.png") center 0 no-repeat`
 }
 
 const StyledAppBar = styled(({ transparent, ...props }) => <AppBar {...props} />)<AppBarProps>`
@@ -74,7 +74,10 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
       <title>{title ? `${title} | Blocks Directory` : 'Blocks Directory'}</title>
     </Head>
     <ElevationScroll elevation={0}>
-      <StyledAppBar position="fixed" transparent={fullPageContent}>
+      <StyledAppBar
+        position={fullPageContent ? 'absolute' : 'fixed'}
+        transparent={fullPageContent}
+      >
         <Container>
           <StyledToolbar>
             <LogoButton href="/">
@@ -90,7 +93,7 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
                 Add Project
               </HeaderButton>
               <Divider />
-              <HeaderButton href="/blog">
+              <HeaderButton href="/">
                 Blog
               </HeaderButton>
               <Divider />

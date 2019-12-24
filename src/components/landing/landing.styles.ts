@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
 export const TitleBlock = styled.div`
   margin-top: -64px;
   width: 100%;
-  background: white;
   background-size: cover;
 `
 export const TitleBlockBackground = styled.div`
@@ -52,7 +51,7 @@ export const ProjectName = styled(Typography)`
 
 export const ProjectDescription = styled(Typography)`
   color: white;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   text-align: center;
 `
 
@@ -92,7 +91,7 @@ export const VideoBlock = styled.div`
   bottom: 0;
   transform: translateY(50%); 
   background: linear-gradient(180deg, #FFFFFF -28.01%, #D9E8FF 250.27%);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 4px rgba(100, 129, 170, 0.18), 0px 35px 50px rgba(92, 131, 192, 0.2);
   max-width: 720px;
   width: calc(100% - 40px);
 `
@@ -134,8 +133,8 @@ export const Features = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 300px;
-  margin-bottom: 100px;
+  margin-top: 275px;
+  margin-bottom: 75px;
   @media (max-width: 950px) {
     margin-bottom: 40px;
   }
@@ -147,39 +146,100 @@ export const Features = styled.div`
   }
 `
 
-export const ReusingBlock = styled.div`
+export const FeatureBlock = styled.div`
   display: flex;
   flex-direction: row;
-  max-width: 900px;
+  max-width: 1000px;
   width: 100%;
   margin-bottom: 150px;
   justify-content: space-between;
+  align-items: center;
   @media (max-width: 950px) {
     flex-direction: column-reverse;
+    margin-bottom: 50px
   }
 `
 
-export const ReusingLeftBlock = styled.div`
+export const BlueBackgroundFeature = styled.div`
+  position: relative;
+  background: linear-gradient(322.36deg, #01E1F7 0.58%, #203BDD 112.86%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 150px 20px 0 20px;
+  @media (max-width: 950px) {
+    padding: 50px 20px 0 20px;
+  }
+`
+
+export const WhiteBackgroundFeature = styled(BlueBackgroundFeature)`
+  background: linear-gradient(180deg, #FFFFFF 10.82%, #D9E8FF 150.43%), #ECF3FF;  
+`
+
+export const FeatureLeftBlock = styled.div`
   margin: 0 10px;
   @media (min-width: 951px) {
     max-width: 650px;
   }
 `
 
-export const ReusingTitle = styled.div`
+export const FeatureTitle = styled.div`
   font-size: 36px;
   margin-bottom: 40px;
   color: #333333;
 `
 
-export const ReusingText = styled.div`
+export const FeatureTitleWhite = styled(FeatureTitle)`
+  color: white;
+`
+
+export const FeatureDescription = styled.div`
   font-size: 24px;
   color: #333333;
 `
 
-export const ReusingIcon = styled.img`
+export const FeatureDescriptionWhite = styled(FeatureDescription)`
+  color: white;
+`
+
+export const FeatureIcon = styled.img`
   margin: 0 10px;
   @media (max-width: 950px) {
     margin-bottom: 40px;
+  }
+`
+
+export const DownloadMicroserviceIcon = styled(FeatureIcon)`
+  margin: 0 10px;
+  padding: 0 62px;
+`
+
+export const ShareMicroservicesIcon = styled(FeatureIcon)`
+  margin: 0 10px;
+  padding: 0 62px;
+`
+
+export const CommunityHeader = styled.div`
+  font-weight: 500;
+  font-size: 36px;
+  color: #FFFFFF;
+  margin-bottom: 40px;
+`
+
+export const SocialButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+`
+
+export const Email = styled.div`
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-bottom: 150px;
+  @media (max-width: 950px) {
+    margin-bottom: 50px;
   }
 `

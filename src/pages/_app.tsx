@@ -1,19 +1,7 @@
 import React from 'react'
 import App from 'next/app'
-import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider } from '@apollo/client'
-import fetch from 'isomorphic-unfetch'
 
 import { ThemeProvider } from '../contexts'
-import { envConfig } from '../configs'
-
-const client = new ApolloClient({
-  ssrMode: typeof window === 'undefined',
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: envConfig.apolloUri,
-    fetch,
-  }),
-})
 
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for
@@ -40,11 +28,9 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props
     return (
-      <ApolloProvider client={client}>
-        <ThemeProvider>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </ApolloProvider>
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     )
   }
 }

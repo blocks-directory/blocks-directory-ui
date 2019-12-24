@@ -1,0 +1,17 @@
+{
+  "name": "s53z4xi-ydh245s",
+  "hash": "HHenyoAALFm1EDxrZiPR4llfv6M/kO/Q+S1ZDS1oqBI=",
+  "description": "Default Lambda@Edge for Next CloudFront distribution",
+  "memory": 512,
+  "timeout": 10,
+  "code": "D:\\Development\\Workspace\\blocks-directory-ui\\.serverless_nextjs\\default-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs10.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::537011205135:role/s53z4xi-sgp69c"
+  },
+  "arn": "arn:aws:lambda:us-east-1:537011205135:function:s53z4xi-ydh245s",
+  "region": "us-east-1"
+}
