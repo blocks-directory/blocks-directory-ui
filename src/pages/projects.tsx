@@ -87,7 +87,7 @@ const ProjectsPage = () => {
   const projects = data?.findProjects || []
 
   return (
-    <AppBarLayout title="Projects">
+    <AppBarLayout title="Search Services">
       <Wrapper>
         <StyledSearchBar
           value={query}
