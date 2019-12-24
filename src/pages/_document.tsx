@@ -44,6 +44,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap"
             as="style"
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap"
+            rel="stylesheet"
+          />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>

@@ -8,12 +8,11 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 
 import { findProjects_findProjects as Project } from '../../graphql/queries/types/findProjects'
 
-
 const Wrapper = styled(Card)`
   display: flex;
   justify-content: space-between;
-  height: 160px;
   padding: 20px;
+  margin-bottom: 20px;
 `
 const LeftContent = styled.div`
   display: flex;
@@ -23,13 +22,25 @@ const LeftContent = styled.div`
 const Title = styled(Typography)`
   color: black;
   font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 10px;
 `
 const Tags = styled.div`
   display: flex;
-  margin: 10px 0 10px -4px;
+  margin: 16px 0 16px -4px;
+  flex-wrap: wrap;
 `
 const Tag = styled(Chip)`
-  margin-right: 8px;
+  margin-right: 10px;
+  font-size: 16px;
+  line-height: 20px;
+  height: 36px;
+  border-radius: 10px;
+  background: #F3F4F5;
+  .MuiChip-label {
+    padding: 0 18px;
+  }
 `
 const RepositoryLink = styled(IconButton as any)`
   max-height: 48px;
