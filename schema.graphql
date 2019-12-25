@@ -1,61 +1,61 @@
 # This file was generated based on ".graphqlconfig". Do not edit manually.
 
 schema {
-    query: Query
-    mutation: Mutation
+  query: Query
+  mutation: Mutation
 }
 
 type Mutation {
-    createProject(repositoryUrl: String!): Project!
+  createProject(repositoryUrl: String!): Project!
 }
 
 type Project {
-    description: String
-    id: String!
-    lastCommitDate: String!
-    name: String!
-    openIssues: Int
-    platform: String!
-    provider: String
-    pullRequests: Int
-    readmeUrl: String
-    repositoryUrl: String!
-    runtime: String
+  description: String
+  id: String!
+  lastCommitDate: String!
+  name: String!
+  openIssues: Int
+  platform: String!
+  provider: String
+  pullRequests: Int
+  readmeUrl: String
+  repositoryUrl: String!
+  runtime: String
 }
 
 type ProjectListData {
-    description: String
-    id: String!
-    lastCommitDate: String!
-    name: String!
-    platform: String!
-    provider: String
-    repositoryUrl: String!
-    runtime: String
+  description: String
+  id: String!
+  lastCommitDate: String!
+  name: String!
+  platform: String!
+  provider: String
+  repositoryUrl: String!
+  runtime: String
 }
 
 type ProjectPreviewData {
-    description: String
-    lastCommitDate: String!
-    name: String!
-    openIssues: Int
-    platform: String
-    provider: String
-    pullRequests: Int
-    readmeUrl: String
-    repositoryUrl: String!
-    runtime: String
+  description: String
+  lastCommitDate: String!
+  name: String!
+  openIssues: Int
+  platform: String
+  provider: String
+  pullRequests: Int
+  readmeUrl: String
+  repositoryUrl: String!
+  runtime: String
 }
 
 type Query {
-    findProjects(offset: Int, query: String): [ProjectListData!]!
-    getProjectById(id: String!): Project
-    getProjectPreview(repositoryUrl: String!): ProjectPreviewData!
+  findProjects(offset: Int, query: String): [ProjectListData!]!
+  getProjectById(id: String!): Project
+  getProjectPreview(repositoryUrl: String!): ProjectPreviewData!
 }
 
 enum CacheControlScope {
-    PRIVATE
-    PUBLIC
+  PRIVATE
+  PUBLIC
 }
 
 
