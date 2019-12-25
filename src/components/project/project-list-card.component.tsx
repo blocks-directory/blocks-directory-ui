@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components'
 import { Card, Chip, IconButton, Typography } from '@material-ui/core'
 import { DateTime } from 'luxon'
@@ -52,7 +52,7 @@ type ProjectListCardProps = {
   project: Project
 }
 
-export const ProjectListCard = ({ project }: ProjectListCardProps) => (
+export const ProjectListCard = memo(({ project }: ProjectListCardProps) => (
   <Wrapper>
     <LeftContent>
       <Title>{project.name}</Title>
@@ -68,9 +68,8 @@ export const ProjectListCard = ({ project }: ProjectListCardProps) => (
         </Typography>
       </div>
     </LeftContent>
-    <RepositoryLink component="a" href={project.repositoryUrl} target="_blank">
+    <RepositoryLink>
       <GitHubIcon />
     </RepositoryLink>
   </Wrapper>
-
-)
+))
