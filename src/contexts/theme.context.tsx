@@ -34,8 +34,20 @@ const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
       type: includes(themes, themeType) ? themeType : 'light',
       ...styles,
     },
+    overrides: {
+      MuiCard: {
+        root: {
+          borderRadius: '10px',
+          boxShadow: '0px 10px 20px rgba(31, 32, 65, 0.1);',
+        },
+      },
+    },
     typography: {
       fontFamily: ['Quicksand', 'Segoe UI', '"sans-serif normal"'].join(','),
+      caption: {
+        fontSize: '16px',
+        lineHeight: '20px',
+      },
       h2: {
         fontWeight: 'bold',
         fontSize: '32px',

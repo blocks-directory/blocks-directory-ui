@@ -4,6 +4,7 @@ export default createGlobalStyle`
   html, body {
     margin: 0;
     padding: 0;
+    background: #FFFFFF;
   }
 
   a {
@@ -19,5 +20,9 @@ export default createGlobalStyle`
       transition-property: background-color, color;
       transition-delay: 99999999999s;
     }
+  }
+  
+  .infinite-scroll-component {
+    overflow: initial !important;
   }
 `

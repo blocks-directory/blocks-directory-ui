@@ -48,7 +48,7 @@ type ProjectPreviewData {
 }
 
 type Query {
-  findProjects(query: String): [ProjectListData!]!
+  findProjects(offset: Int, query: String): [ProjectListData!]!
   getProjectById(id: String!): Project
   getProjectPreview(repositoryUrl: String!): ProjectPreviewData!
 }

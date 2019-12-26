@@ -24,4 +24,5 @@ export interface findProjects {
 
 export interface findProjectsVariables {
   query: string;
+  offset?: number | null;
 }
