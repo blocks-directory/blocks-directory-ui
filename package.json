@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "export": "next export",
     "start": "next start",
     "lint": "eslint \"src/**\"",
     "lint:fix": "eslint \"src/**\" --fix",

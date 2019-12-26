@@ -3,7 +3,7 @@ name: dev-build-deploy
 on:
   push:
     branches:
-      - fix-projects-page-styles-add-infinite-scroll
+      - master
 
 jobs:
   build:
@@ -19,10 +19,10 @@ jobs:
         run: yarn lint
       - name: tsc
         run: yarn tsc
-      - name: build
-        run: yarn build && yarn export
       - name: dev deploy
-        run: aws s3 sync out/. s3://dev.blocks.directory/ --delete
+        uses: serverless/github-action@master
+        with:
+          args: --stage=dev
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
