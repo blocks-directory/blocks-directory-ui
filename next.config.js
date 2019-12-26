@@ -2,7 +2,7 @@
 const withTM = require('next-transpile-modules')
 
 module.exports = withTM({
-  target: 'serverless',
+  target: 'server',
   transpileModules: ['lodash-es'],
   devIndicators: {
     autoPrerender: false,
