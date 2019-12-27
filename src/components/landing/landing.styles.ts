@@ -1,17 +1,38 @@
 import styled from 'styled-components'
 import { Typography, Fab } from '@material-ui/core'
 
+export const Wrapper = styled.div`
+  padding: 20px 0;
+`
+
 export const TitleBlock = styled.div`
   margin-top: -64px;
   width: 100%;
   background-size: cover;
 `
+export const TitleBlockBackground = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 930px;
+  background: ${(p) => p.theme.palette.primary.main} url("/title_block_background.png") center 0 no-repeat;
+  background-size: cover;
+  clip-path: ellipse(120% 90% at top);
+  z-index: 1;
+  @media (max-width: 800px) {
+    clip-path: ellipse(170% 90% at top);
+  }
+`
+
 export const SearchBarWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   max-width: 600px;
 `
+
 export const TitleBlockContent = styled.div`
   position: relative;
   background: linear-gradient(322.36deg, #01E1F7 0.58%, #203BDD 112.86%);
@@ -21,16 +42,19 @@ export const TitleBlockContent = styled.div`
   align-items: center;
   padding: 108px 20px 20px 20px;
 `
+
 export const ProjectName = styled(Typography)`
   margin: 80px 0;
   color: white;
   text-align: center;
 `
+
 export const ProjectDescription = styled(Typography)`
   color: white;
   margin-bottom: 80px;
   text-align: center;
 `
+
 export const SearchRow = styled.div`
   display: flex;
   flex-direction: row;
@@ -47,6 +71,7 @@ export const SearchRow = styled.div`
     margin-bottom: 100px;
   }
 `
+
 export const SearchButton = styled(Fab)`
   margin: 20px 10px;
   color: white;
@@ -60,15 +85,17 @@ export const SearchButton = styled(Fab)`
   width: 264px;
   height: 60px;
 `
+
 export const VideoBlock = styled.div`
   position: absolute;
   bottom: 0;
   transform: translateY(50%); 
   background: linear-gradient(180deg, #FFFFFF -28.01%, #D9E8FF 250.27%);
-  box-shadow: 0 1px 4px rgba(100, 129, 170, 0.18), 0px 35px 50px rgba(92, 131, 192, 0.2);
+  box-shadow: 0px 1px 4px rgba(100, 129, 170, 0.18), 0px 35px 50px rgba(92, 131, 192, 0.2);
   max-width: 720px;
   width: calc(100% - 40px);
 `
+
 export const EmbedContainer = styled.div`
   position: relative; 
   padding-bottom: 56.25%; 
@@ -83,6 +110,7 @@ export const EmbedContainer = styled.div`
     height: 100%;
   }
 `
+
 export const FeaturesBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -91,6 +119,7 @@ export const FeaturesBlock = styled.div`
   background: url("/white-background.svg") center 0 no-repeat;
   background-size: cover;
 `
+
 export const Features = styled.div`
   color: #333333;
   background: url("/features.svg") center 0 no-repeat;
@@ -116,6 +145,7 @@ export const Features = styled.div`
     margin-top: 100px;
   }
 `
+
 export const FeatureBlock = styled.div`
   display: flex;
   flex-direction: row;
@@ -129,6 +159,7 @@ export const FeatureBlock = styled.div`
     margin-bottom: 50px
   }
 `
+
 export const BlueBackgroundFeature = styled.div`
   position: relative;
   background: linear-gradient(322.36deg, #01E1F7 0.58%, #203BDD 112.86%);
@@ -142,55 +173,67 @@ export const BlueBackgroundFeature = styled.div`
     padding: 50px 20px 0 20px;
   }
 `
+
 export const WhiteBackgroundFeature = styled(BlueBackgroundFeature)`
   background: linear-gradient(180deg, #FFFFFF 10.82%, #D9E8FF 150.43%), #ECF3FF;  
 `
+
 export const FeatureLeftBlock = styled.div`
   margin: 0 10px;
   @media (min-width: 951px) {
     max-width: 650px;
   }
 `
+
 export const FeatureTitle = styled.div`
   font-size: 36px;
   margin-bottom: 40px;
   color: #333333;
 `
+
 export const FeatureTitleWhite = styled(FeatureTitle)`
   color: white;
 `
+
 export const FeatureDescription = styled.div`
   font-size: 24px;
   color: #333333;
 `
+
 export const FeatureDescriptionWhite = styled(FeatureDescription)`
   color: white;
 `
+
 export const FeatureIcon = styled.img`
   margin: 0 10px;
   @media (max-width: 950px) {
     margin-bottom: 40px;
   }
 `
+
 export const DownloadMicroserviceIcon = styled(FeatureIcon)`
   margin: 0 10px;
   padding: 0 62px;
 `
+
 export const ShareMicroservicesIcon = styled(FeatureIcon)`
   margin: 0 10px;
   padding: 0 62px;
 `
+
 export const CommunityHeader = styled.div`
   font-weight: 500;
   font-size: 36px;
   color: #FFFFFF;
   margin-bottom: 40px;
 `
+
 export const SocialButtons = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 40px;
 `
+
 export const Email = styled.div`
   font-weight: 500;
   font-size: 18px;

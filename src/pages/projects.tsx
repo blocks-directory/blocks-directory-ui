@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { useDebounce } from 'react-use'
-import { InputAdornment, TextField, FormControl, CircularProgress } from '@material-ui/core'
-import { useQuery } from '@apollo/client'
+import { FormControl, CircularProgress } from '@material-ui/core'
+import { useQuery } from '@apollo/react-hooks'
 import { isEmpty, map, get } from 'lodash-es'
 import { useRouter } from 'next/router'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
-import SearchIcon from '@material-ui/icons/Search'
-
-import { AppBarLayout, ProjectListCard } from '../components'
+import { AppBarLayout, ProjectListCard, SearchBar } from '../components'
 import { projectsList } from '../graphql'
 import { findProjects as Projects } from '../graphql/queries/types/findProjects'
+import { withApollo } from '../lib/apollo'
 
 const Wrapper = styled.div`
   padding: 20px 0;
@@ -26,37 +26,72 @@ const NoContentHolder = styled.div`
 const ProjectList = styled.div`
   margin-top: 20px;
 `
+const StyledSearchBar = styled(SearchBar)`
+  background: #F3F4F5;
+`
+const LoaderWrapper = styled.div`
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
-export default () => {
+const ProjectsPage = () => {
   const router = useRouter()
   const debouncedQuery = get(router, 'query.query', '')
   const [query, setQuery] = useState(get(router, 'query.query', ''))
-  const { data, loading } = useQuery<Projects>(projectsList,
-    { variables: { query: debouncedQuery }, fetchPolicy: 'network-only' })
+  const [loadingMore, setLoadingMore] = useState(false)
+  const { data, fetchMore, loading } = useQuery<Projects>(projectsList,
+    { variables: { query: debouncedQuery } })
+  const [hasMore, setHasMore] = useState<{[key: string]: boolean}>({ })
 
-  useDebounce(() => router.replace({
-    pathname: '/projects',
-    query: { query },
-  }), 300, [query])
+  const currentQueryHasMore = hasMore[query] == null ? true : hasMore[query]
+
+  const loadMore = useCallback(() => {
+    if (loadingMore) {
+      return {}
+    }
+
+    setLoadingMore(true)
+
+    return fetchMore({
+      variables: {
+        offset: get(data, 'findProjects.length'),
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult) return prev
+
+        if (fetchMoreResult.findProjects.length < 20) {
+          setHasMore({
+            ...hasMore,
+            [query]: false,
+          })
+        }
+
+        return { ...prev, findProjects: [...prev.findProjects, ...fetchMoreResult.findProjects] }
+      },
+    }).then(() => {
+      setLoadingMore(false)
+    })
+  }, [data, loadingMore])
+
+  useDebounce(() => {
+    router.replace({
+      pathname: '/projects',
+      query: { query },
+    })
+  }, 700, [query])
 
   const projects = data?.findProjects || []
 
   return (
-    <AppBarLayout title="Projects">
+    <AppBarLayout title="Search Services">
       <Wrapper>
-        <TextField
-          label="Search"
-          variant="filled"
-          fullWidth
+        <StyledSearchBar
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
         />
         <FormControl />
         {loading && (
@@ -68,13 +103,23 @@ export default () => {
           <NoContentHolder>0 projects found</NoContentHolder>
         )}
         {!loading && !isEmpty(projects) && (
-          <ProjectList>
-            {map(projects, (project) => (
-              <ProjectListCard key={project.id!} project={project} />
-            ))}
-          </ProjectList>
+          <InfiniteScroll
+            next={loadMore}
+            hasMore={currentQueryHasMore}
+            loader={loadingMore && <LoaderWrapper><CircularProgress /></LoaderWrapper>}
+            dataLength={projects.length}
+            scrollThreshold="40%"
+          >
+            <ProjectList>
+              {map(projects, (project) => (
+                <ProjectListCard key={project.id!} project={project} />
+              ))}
+            </ProjectList>
+          </InfiniteScroll>
         )}
       </Wrapper>
     </AppBarLayout>
   )
 }
+
+export default withApollo(ProjectsPage)

@@ -15,6 +15,7 @@ export const StarsBackground = styled.div`
   height: 100%;
 `
 
+
 export const Stars = () => {
   const [img] = useImage('/stars.svg')
   const [props, set] = useSpring(() => ({
