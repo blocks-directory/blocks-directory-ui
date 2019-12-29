@@ -2,15 +2,14 @@ import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { useDebounce } from 'react-use'
 import { FormControl, CircularProgress } from '@material-ui/core'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery } from '@apollo/client'
 import { isEmpty, map, get } from 'lodash-es'
-import { useRouter } from 'next/router'
+import { navigate } from '@reach/router'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { AppBarLayout, ProjectListCard, SearchBar } from '../components'
 import { projectsList } from '../graphql'
 import { findProjects as Projects } from '../graphql/queries/types/findProjects'
-import { withApollo } from '../lib/apollo'
 
 const Wrapper = styled.div`
   padding: 20px 0;
@@ -38,14 +37,13 @@ const LoaderWrapper = styled.div`
   align-items: center;
 `
 
-const ProjectsPage = () => {
-  const router = useRouter()
-  const debouncedQuery = get(router, 'query.query', '')
-  const [query, setQuery] = useState(get(router, 'query.query', ''))
+const ProjectsPage = ({ query: routerQuery = '' }: any) => {
+  const debouncedQuery = routerQuery
+  const [query, setQuery] = useState(debouncedQuery)
   const [loadingMore, setLoadingMore] = useState(false)
   const { data, fetchMore, loading } = useQuery<Projects>(projectsList,
     { variables: { query: debouncedQuery } })
-  const [hasMore, setHasMore] = useState<{[key: string]: boolean}>({ })
+  const [hasMore, setHasMore] = useState<{ [key: string]: boolean }>({})
 
   const currentQueryHasMore = hasMore[query] == null ? true : hasMore[query]
 
@@ -78,10 +76,7 @@ const ProjectsPage = () => {
   }, [data, loadingMore])
 
   useDebounce(() => {
-    router.replace({
-      pathname: '/projects',
-      query: { query },
-    })
+    navigate(`/app/projects/${query}`)
   }, 700, [query])
 
   const projects = data?.findProjects || []
@@ -122,4 +117,4 @@ const ProjectsPage = () => {
   )
 }
 
-export default withApollo(ProjectsPage)
+export default ProjectsPage
