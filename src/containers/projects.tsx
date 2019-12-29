@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client'
 import { isEmpty, map, get } from 'lodash-es'
 import { navigate } from '@reach/router'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import queryString from 'query-string'
 
 import { AppBarLayout, ProjectListCard, SearchBar } from '../components'
 import { projectsList } from '../graphql'
@@ -37,8 +38,8 @@ const LoaderWrapper = styled.div`
   align-items: center;
 `
 
-const ProjectsPage = ({ query: routerQuery = '' }: any) => {
-  const debouncedQuery = routerQuery
+const ProjectsPage = ({ location }: any) => {
+  const debouncedQuery = get(queryString.parse(location.search), 'query', '') as string
   const [query, setQuery] = useState(debouncedQuery)
   const [loadingMore, setLoadingMore] = useState(false)
   const { data, fetchMore, loading } = useQuery<Projects>(projectsList,
@@ -76,7 +77,7 @@ const ProjectsPage = ({ query: routerQuery = '' }: any) => {
   }, [data, loadingMore])
 
   useDebounce(() => {
-    navigate(`/app/projects/${query}`)
+    navigate(`/app/projects?query=${query}`)
   }, 700, [query])
 
   const projects = data?.findProjects || []

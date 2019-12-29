@@ -45,7 +45,7 @@ const YouTubeVideo = styled(YouTube)`
 export default () => {
   const [query, setQuery] = useState('')
   const goToSearch = useCallback(() => {
-    navigate(`/app/projects/${query}`)
+    navigate(`/app/projects?query=${query}`)
   }, [query])
 
   const [youtubeVideoStyle, setYouTubeVideoProps] = useSpring(() => ({
