@@ -77,7 +77,7 @@ const ProjectsPage = ({ location }: any) => {
   }, [data, loadingMore])
 
   useDebounce(() => {
-    navigate(`/app/projects?query=${query}`)
+    navigate(`/projects?query=${query}`)
   }, 700, [query])
 
   const projects = data?.findProjects || []

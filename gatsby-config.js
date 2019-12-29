@@ -56,7 +56,7 @@ module.exports = {
     // },
     {
       resolve: 'gatsby-plugin-create-client-paths',
-      options: { prefixes: ['/app/*'] },
+      options: { prefixes: ['/projects/*'] },
     },
     {
       resolve: 'gatsby-plugin-google-fonts',

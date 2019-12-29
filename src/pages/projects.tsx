@@ -4,6 +4,6 @@ import Projects from '../containers/projects'
 
 export default () => (
   <Router>
-    <Projects path="/app/projects" />
+    <Projects path="/projects" />
   </Router>
 )
