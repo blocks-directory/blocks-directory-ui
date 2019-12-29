@@ -59,14 +59,12 @@ module.exports = {
       options: { prefixes: ['/app/*'] },
     },
     {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          {
-            family: 'Roboto',
-            variants: ['300', '400', '500', '700'],
-          },
+          'quicksand:300,400,500,600,700',
         ],
+        display: 'swap',
       },
     },
   ],
