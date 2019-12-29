@@ -6,13 +6,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'images',
-    //     path: path.join(__dirname, 'static', 'images'),
-    //   },
-    // },
-    // {
     //   resolve: 'gatsby-plugin-manifest',
     //   options: {
     //     name: config.siteTitle,

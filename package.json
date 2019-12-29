@@ -60,14 +60,12 @@
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-manifest": "2.2.31",
     "gatsby-plugin-offline": "3.0.27",
-    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "3.1.16",
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sharp": "2.3.5",
     "gatsby-plugin-sitemap": "^2.2.22",
     "gatsby-plugin-styled-components": "3.1.14",
     "gatsby-plugin-typescript": "^2.1.20",
-    "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-sharp": "2.3.7",
     "typescript": "^3.7.3"
   }
