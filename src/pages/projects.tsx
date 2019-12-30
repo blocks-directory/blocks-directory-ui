@@ -4,13 +4,13 @@ import { useDebounce } from 'react-use'
 import { FormControl, CircularProgress } from '@material-ui/core'
 import { useQuery } from '@apollo/react-hooks'
 import { isEmpty, map, get } from 'lodash-es'
-import { useRouter } from 'next/router'
+import { Router, navigate } from '@reach/router'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import queryString from 'query-string'
 
 import { AppBarLayout, ProjectListCard, SearchBar } from '../components'
 import { projectsList } from '../graphql'
 import { findProjects as Projects } from '../graphql/queries/types/findProjects'
-import { withApollo } from '../lib/apollo'
 
 const Wrapper = styled.div`
   padding: 20px 0;
@@ -38,14 +38,13 @@ const LoaderWrapper = styled.div`
   align-items: center;
 `
 
-const ProjectsPage = () => {
-  const router = useRouter()
-  const debouncedQuery = get(router, 'query.query', '')
-  const [query, setQuery] = useState(get(router, 'query.query', ''))
+const ProjectsPage = ({ location }: any) => {
+  const debouncedQuery = get(queryString.parse(location.search), 'query', '') as string
+  const [query, setQuery] = useState(debouncedQuery)
   const [loadingMore, setLoadingMore] = useState(false)
   const { data, fetchMore, loading } = useQuery<Projects>(projectsList,
     { variables: { query: debouncedQuery } })
-  const [hasMore, setHasMore] = useState<{[key: string]: boolean}>({ })
+  const [hasMore, setHasMore] = useState<{ [key: string]: boolean }>({})
 
   const currentQueryHasMore = hasMore[query] == null ? true : hasMore[query]
 
@@ -78,10 +77,7 @@ const ProjectsPage = () => {
   }, [data, loadingMore])
 
   useDebounce(() => {
-    router.replace({
-      pathname: '/projects',
-      query: { query },
-    })
+    navigate(`/projects?query=${query}`)
   }, 700, [query])
 
   const projects = data?.findProjects || []
@@ -122,4 +118,8 @@ const ProjectsPage = () => {
   )
 }
 
-export default withApollo(ProjectsPage)
+export default () => (
+  <Router>
+    <ProjectsPage path="/projects" />
+  </Router>
+)

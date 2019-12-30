@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
 import { AppBar, Toolbar, Container } from '@material-ui/core'
-import Head from 'next/head'
+import { Helmet } from 'react-helmet'
 
 import { ElevationScroll } from './elevation-scroll.component'
 import { ButtonLink } from '../button-link.component'
@@ -38,7 +38,9 @@ const HeaderButton = styled(ButtonLink)`
 const LogoButton = styled(HeaderButton)`
   padding: 0 16px 0 0;
 `
-const Logo = styled(FullLogo)`
+const Logo = styled.div`
+  background: url('${FullLogo}') no-repeat center center;
+  background-size: contain;
   height: 50px;
   width: 170px;
 `
@@ -70,9 +72,9 @@ interface ToolbarLayoutProps {
 
 export const AppBarLayout = memo(({ children, title = '', fullPageContent }: ToolbarLayoutProps) => (
   <>
-    <Head>
+    <Helmet>
       <title>{title ? `${title} | Blocks Directory` : 'Blocks Directory'}</title>
-    </Head>
+    </Helmet>
     <ElevationScroll elevation={0}>
       <StyledAppBar
         position={fullPageContent ? 'absolute' : 'fixed'}
@@ -80,24 +82,24 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
       >
         <Container>
           <StyledToolbar>
-            <LogoButton href="/">
+            <LogoButton to="/">
               <Logo />
             </LogoButton>
             <Flex />
             <HeaderList>
-              <HeaderButton href="/projects">
+              <HeaderButton to="/app/projects">
                 Browse
               </HeaderButton>
               <Divider />
-              <HeaderButton href="/add-project">
+              <HeaderButton to="/add-project">
                 Add Project
               </HeaderButton>
               <Divider />
-              <HeaderButton href="/">
+              <HeaderButton to="/">
                 Blog
               </HeaderButton>
               <Divider />
-              <HeaderButton href="/about">
+              <HeaderButton to="/about">
                 About
               </HeaderButton>
               <Divider />

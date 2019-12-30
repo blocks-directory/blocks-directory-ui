@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import YouTube from 'react-youtube'
 import styled from 'styled-components'
-import Router from 'next/router'
+import { navigate } from '@reach/router'
 import { useSpring, animated } from 'react-spring'
 import { Spring } from 'react-spring/renderprops.cjs'
 
@@ -45,10 +45,7 @@ const YouTubeVideo = styled(YouTube)`
 export default () => {
   const [query, setQuery] = useState('')
   const goToSearch = useCallback(() => {
-    Router.push({
-      pathname: '/projects',
-      query: { query },
-    })
+    navigate(`/projects?query=${query}`)
   }, [query])
 
   const [youtubeVideoStyle, setYouTubeVideoProps] = useSpring(() => ({
