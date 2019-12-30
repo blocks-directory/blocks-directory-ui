@@ -1,14 +1,12 @@
 import React from 'react'
-import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from '@apollo/react-hooks'
 
 import { ThemeProvider } from './src/contexts'
 import { envConfig } from './src/configs'
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: envConfig.apolloUri,
-  }),
+  uri: envConfig.apolloUri,
 })
 
 export const onServiceWorkerUpdateReady = () => {
