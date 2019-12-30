@@ -43,7 +43,7 @@ const ProjectsPage = ({ location }: any) => {
   const [query, setQuery] = useState(debouncedQuery)
   const [loadingMore, setLoadingMore] = useState(false)
   const { data, fetchMore, loading } = useQuery<Projects>(projectsList,
-    { variables: { query: debouncedQuery }, fetchPolicy: 'network-only' })
+    { variables: { query: debouncedQuery } })
   const [hasMore, setHasMore] = useState<{ [key: string]: boolean }>({})
 
   const currentQueryHasMore = hasMore[query] == null ? true : hasMore[query]
