@@ -1,13 +1,8 @@
 import React from 'react'
-import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
 
+import { client } from './src/graphql/apollo.utils'
 import { ThemeProvider } from './src/contexts'
-import { envConfig } from './src/configs'
-
-const client = new ApolloClient({
-  uri: envConfig.apolloUri,
-})
 
 export const onServiceWorkerUpdateReady = () => {
   window.location.reload()

@@ -1,5 +1,9 @@
 import React from 'react'
+import { ApolloProvider } from '@apollo/react-hooks'
+
+import { client } from './src/graphql/apollo.utils'
 import { ThemeProvider } from './src/contexts'
+
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
@@ -10,7 +14,9 @@ import { ThemeProvider } from './src/contexts'
 // eslint-disable-next-line react/prop-types
 export const wrapRootElement = ({ element }) => (
   // eslint-disable-next-line react/jsx-filename-extension
-  <ThemeProvider>
-    {element}
-  </ThemeProvider>
+  <ApolloProvider client={client}>
+    <ThemeProvider>
+      {element}
+    </ThemeProvider>
+  </ApolloProvider>
 )
