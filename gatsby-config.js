@@ -17,6 +17,15 @@ module.exports = {
     //     icon: config.icon,
     //   },
     // },
+    {
+      resolve: 'gatsby-plugin-material-ui',
+      // If you want to use styled components you should change the injection order.
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
     // {
@@ -57,7 +66,7 @@ module.exports = {
         fonts: [
           'quicksand:300,400,500,600,700',
         ],
-        display: 'swap',
+        display: 'block',
       },
     },
   ],
