@@ -87,7 +87,7 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
             </LogoButton>
             <Flex />
             <HeaderList>
-              <HeaderButton to="/app/projects">
+              <HeaderButton to="/projects">
                 Browse
               </HeaderButton>
               <Divider />
