@@ -39,7 +39,11 @@ module.exports = {
     //     respectDNT: true,
     //   },
     // },
-    'gatsby-plugin-offline',
+
+    // Temporary disabled https://github.com/gatsbyjs/gatsby/issues/11006
+    // `gatsby-plugin-offline`,
+    'gatsby-plugin-remove-serviceworker',
+
     // 'gatsby-plugin-sitemap',
     // {
     //   resolve: 'gatsby-plugin-robots-txt',
