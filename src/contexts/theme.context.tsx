@@ -41,6 +41,13 @@ const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
           boxShadow: '0px 10px 20px rgba(31, 32, 65, 0.1);',
         },
       },
+      MuiInput: {
+        root: {
+          background: '#F3F4F5',
+          borderRadius: '10px',
+          padding: '2px 12px',
+        },
+      },
     },
     typography: {
       fontFamily: ['Quicksand', 'Segoe UI', '"sans-serif normal"'].join(','),
@@ -56,6 +63,10 @@ const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
       h4: {
         fontWeight: 500,
         fontSize: '32px',
+      },
+      h5: {
+        fontWeight: 'bold',
+        fontSize: '24px',
       },
     },
   }), [styles, themeType])

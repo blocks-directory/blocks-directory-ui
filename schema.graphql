@@ -6,7 +6,7 @@ schema {
 }
 
 type Mutation {
-  createProject(repositoryUrl: String!): Project!
+  submitProject(repositoryUrl: String!): SubmitProjectResponse!
 }
 
 type Project {
@@ -34,23 +34,13 @@ type ProjectListData {
   runtime: String
 }
 
-type ProjectPreviewData {
-  description: String
-  lastCommitDate: String!
-  name: String!
-  openIssues: Int
-  platform: String
-  provider: String
-  pullRequests: Int
-  readmeUrl: String
-  repositoryUrl: String!
-  runtime: String
-}
-
 type Query {
   findProjects(offset: Int, query: String): [ProjectListData!]!
   getProjectById(id: String!): Project
-  getProjectPreview(repositoryUrl: String!): ProjectPreviewData!
+}
+
+type SubmitProjectResponse {
+  repositoryUrl: String!
 }
 
 enum CacheControlScope {
