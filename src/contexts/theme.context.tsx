@@ -43,7 +43,6 @@ const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
       },
       MuiInput: {
         root: {
-          fontFamily: ['Quicksand', 'Segoe UI', '"sans-serif normal"'].join(','),
           background: '#F3F4F5',
           borderRadius: '10px',
           padding: '2px 12px',
