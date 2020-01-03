@@ -91,8 +91,8 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
                 Browse
               </HeaderButton>
               <Divider />
-              <HeaderButton to="/add-project">
-                Add Project
+              <HeaderButton to="/submit-project">
+                Submit Project
               </HeaderButton>
               <Divider />
               <HeaderButton to="/">
