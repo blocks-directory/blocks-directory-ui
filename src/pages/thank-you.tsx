@@ -37,7 +37,8 @@ export default () => (
         </Section>
         <Section>
           <Typography variant="body1">
-            <a href="https://google.com" target="_blank" rel="noopener noreferrer">Join our Slack community</a> to discuss microservices, get latest news and more.
+            <a href="https://google.com" target="_blank" rel="noopener noreferrer">Join our Slack community</a> to
+            discuss microservices, get latest news and more.
           </Typography>
         </Section>
       </Content>
