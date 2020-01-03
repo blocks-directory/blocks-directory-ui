@@ -5,7 +5,7 @@ import { Input, Typography } from '@material-ui/core'
 import { navigate } from '@reach/router'
 
 import { AppBarLayout } from '../components'
-import { submitProject } from '../graphql/mutations/submit-project.mutation'
+import { submitProject } from '../graphql/mutations'
 import { Button } from '../components/button/button.component'
 
 const Wrapper = styled.div`
