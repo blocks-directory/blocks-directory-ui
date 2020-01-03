@@ -43,11 +43,29 @@ const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
       },
       MuiInput: {
         root: {
+          fontFamily: ['Quicksand', 'Segoe UI', '"sans-serif normal"'].join(','),
           background: '#F3F4F5',
           borderRadius: '10px',
           padding: '2px 12px',
         },
       },
+      MuiButton: {
+        root: {
+          padding: '3px 25px',
+          borderRadius: '45px',
+          background: 'linear-gradient(0deg, #0D8EFC, #0D8EFC), linear-gradient(101.19deg, #2FF6F5 -12.1%, #0470FE 105.48%);',
+          boxShadow: '0px 6px 12px rgba(54, 176, 245, 0.16), 0px 16px 24px rgba(54, 123, 245, 0.16) !important;',
+          color: '#FFFFFF',
+          textTransform: 'uppercase',
+          letterSpacing: '2px',
+        },
+        label: {
+          fontFamily: ['Quicksand', 'Segoe UI', '"sans-serif normal"'].join(','),
+          textShadow: '0px 1px 4px rgba(0, 0, 0, 0.25);',
+          fontWeight: 'bold',
+          fontSize: '16px',
+        }
+      }
     },
     typography: {
       fontFamily: ['Quicksand', 'Segoe UI', '"sans-serif normal"'].join(','),

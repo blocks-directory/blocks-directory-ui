@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-
+import { useMutation } from '@apollo/react-hooks'
 import { Input, Typography } from '@material-ui/core'
+import { navigate } from '@reach/router'
+
 import { AppBarLayout } from '../components'
+import { submitProject } from '../graphql/mutations/submit-project.mutation'
+import { Button } from '../components/button/button.component'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 64px);
-  padding: 48px 24px;
+  padding: 48px 0;
   align-items: center;
   justify-content: flex-start;
 `
 const Content = styled.div`
- max-width: 900px;
+ max-width: 1328px;
  width: 100%;
 `
 const Section = styled.div`
@@ -24,7 +28,9 @@ const StyledInput = styled(Input)`
 `
 
 export default () => {
-  const [repoUrl, setRepoUrl] = useState('')
+  const [repositoryUrl, setRepositoryUrl] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [submitProjectMutation] = useMutation(submitProject)
 
   return (
     <AppBarLayout title="Submit Project">
@@ -43,21 +49,30 @@ export default () => {
           <Section>
             <Typography variant="body1">
               To submit your project to the
-              directory please provide a GitHub link below
+              directory please provide a repository link below.
             </Typography>
           </Section>
           <Section>
             <StyledInput
-              value={repoUrl}
-              onChange={(e) => setRepoUrl(e.target.value)}
+              value={repositoryUrl}
+              onChange={(e) => setRepositoryUrl(e.target.value)}
               disableUnderline
-              placeholder="GitHub link"
+              placeholder="Repository URL"
             />
           </Section>
           <Section>
-            <Typography variant="body1">
-              Not a GitHub project? Click here
-            </Typography>
+            <Button
+              disabled={loading || !repositoryUrl}
+              updating={loading}
+              onClick={async () => {
+                setLoading(true)
+                await submitProjectMutation({ variables: { repositoryUrl } })
+                setLoading(false)
+                navigate('/thank-you')
+              }}
+            >
+              Submit
+            </Button>
           </Section>
         </Content>
       </Wrapper>

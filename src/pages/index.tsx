@@ -112,7 +112,7 @@ export default () => {
                   variant="extended"
                   onClick={goToSearch}
                 >
-                Search
+                  Search
                 </SearchButton>
               </SearchRow>
             )}
