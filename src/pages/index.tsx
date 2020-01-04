@@ -130,7 +130,7 @@ export default () => {
                 <animated.div style={youtubeVideoStyle}>
                   <EmbedContainer>
                     <YouTubeVideo
-                      videoId="2NX73V1bTNA"
+                      videoId="YrdxCnlO5hM"
                       onReady={() => setYouTubeVideoProps({ opacity: 1 })}
                     />
                   </EmbedContainer>
