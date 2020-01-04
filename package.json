@@ -9,9 +9,7 @@
     "lint": "eslint \"src/**\"",
     "lint:fix": "eslint \"src/**\" --fix",
     "tsc": "tsc --noEmit",
-    "generate-types": "apollo codegen:generate --localSchemaFile=schema.graphql --target=typescript --includes=src/**/*.ts --tagName=gql --addTypename --globalTypesFile=src/graphql/types/graphql-global-types.ts types",
-    "deployDev": "serverless --stage=dev",
-    "deployProd": "serverless --stage=prod"
+    "generate-types": "apollo codegen:generate --localSchemaFile=schema.graphql --target=typescript --includes=src/**/*.ts --tagName=gql --addTypename --globalTypesFile=src/graphql/types/graphql-global-types.ts types"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",

@@ -21,6 +21,12 @@ const Logo = styled.div`
   max-width: 320px;
   width: 100%;
 `
+const Header = styled.h1`
+  margin-bottom: ${rhythm(1)};
+  margin-top: 0;
+  font-size: ${scale(1.5).fontSize};
+  line-height: ${scale(1.5).lineHeight};
+`
 
 interface LayoutProps {
   children: React.ReactNode
@@ -28,24 +34,11 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   const header = (
-    <h1
-      style={{
-        ...scale(1.5),
-        marginBottom: rhythm(1),
-        marginTop: 0,
-      }}
-    >
-      <Link
-        style={{
-          boxShadow: 'none',
-          textDecoration: 'none',
-          color: 'inherit',
-        }}
-        to="/blog"
-      >
+    <Header>
+      <Link to="/blog">
         <Logo />
       </Link>
-    </h1>
+    </Header>
   )
 
   return (
