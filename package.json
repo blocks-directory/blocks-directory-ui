@@ -22,7 +22,6 @@
     "apollo-boost": "^0.4.7",
     "gatsby": "^2.18.17",
     "gatsby-source-filesystem": "^2.1.43",
-    "gatsby-v2-plugin-page-transitions": "^1.0.0",
     "graphql": "^14.5.8",
     "isomorphic-fetch": "^2.2.1",
     "lodash-es": "^4.17.15",
