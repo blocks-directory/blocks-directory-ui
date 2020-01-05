@@ -26,7 +26,7 @@ const themes = ['light', 'dark']
 const ThemeContext = React.createContext({} as ThemeState)
 
 const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
-  const [themeType, setTheme] = useLocalStorage<ThemeType>('cv-theme', 'light')
+  const [themeType, setTheme] = useLocalStorage<ThemeType>('blocks-theme', 'light')
   const styles = get(themesStyles, `[${themeType}]`)
 
   const theme = useMemo(() => createMuiTheme({
