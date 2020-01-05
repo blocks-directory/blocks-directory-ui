@@ -51,8 +51,7 @@ export const Wrapper = styled.div`
 `
 export const Drawer = styled(MaterialDrawer)`
   .MuiPaper-root {
-    background: ${(p) => `linear-gradient(to bottom, 
-      ${p.theme.palette.primary.main}, ${p.theme.palette.secondary.main})`};
+    background: linear-gradient(322.36deg, rgb(1, 225, 247) 0.58%, rgb(32, 59, 221) 112.86%);
     color: white;
     overflow-x: hidden;
     flex-shrink: 0;
