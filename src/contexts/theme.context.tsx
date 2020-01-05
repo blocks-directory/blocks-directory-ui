@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useMemo } from 'react'
 import { ThemeProvider as StyledProvider } from 'styled-components'
 import createMuiTheme, { Theme } from '@material-ui/core/styles/createMuiTheme'
-import { StylesProvider, ThemeProvider as MuiProvider } from '@material-ui/styles'
+import { ThemeProvider as MuiProvider } from '@material-ui/styles'
 import { CssBaseline } from '@material-ui/core'
 import { useLocalStorage } from 'react-use'
 import { get, includes } from 'lodash-es'
@@ -78,13 +78,11 @@ const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
   return (
     <ThemeContext.Provider value={{ theme, themeType, toggleTheme }}>
       <MuiProvider theme={theme}>
-        <StylesProvider injectFirst>
-          <GlobalStyles />
-          <CssBaseline />
-          <StyledProvider theme={theme}>
-            {children}
-          </StyledProvider>
-        </StylesProvider>
+        <GlobalStyles />
+        <CssBaseline />
+        <StyledProvider theme={theme}>
+          {children}
+        </StyledProvider>
       </MuiProvider>
     </ThemeContext.Provider>
   )
