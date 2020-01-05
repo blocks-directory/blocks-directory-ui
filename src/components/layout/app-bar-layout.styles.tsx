@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { AppBar, Toolbar, Slide, Drawer as MaterialDrawer } from '@material-ui/core'
+import { AppBar, Toolbar, Slide, Drawer as MaterialDrawer, IconButton } from '@material-ui/core'
 import { fade } from '@material-ui/core/styles/colorManipulator'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 
@@ -51,7 +51,7 @@ export const Wrapper = styled.div`
 `
 export const Drawer = styled(MaterialDrawer)`
   .MuiPaper-root {
-    background: ${(p) => p.theme.palette.primary.main};
+    background: linear-gradient(322.36deg, rgb(1, 225, 247) 0.58%, rgb(32, 59, 221) 112.86%);
     color: white;
     overflow-x: hidden;
     flex-shrink: 0;
@@ -107,4 +107,7 @@ export const Divider = styled.div`
   width: 2px;
   margin: 12px 0;
   background: rgba(255, 255, 255, 0.2);
+`
+export const MenuButton = styled(IconButton)`
+  color: white;
 `

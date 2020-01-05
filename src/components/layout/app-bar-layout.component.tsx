@@ -1,6 +1,8 @@
 import React, { memo, useCallback, useState } from 'react'
-import { Toolbar, Container, useMediaQuery, ButtonBase, Box } from '@material-ui/core'
+import { Toolbar, Container, useMediaQuery, Box } from '@material-ui/core'
 import { Helmet } from 'react-helmet'
+
+import MenuIcon from '@material-ui/icons/Menu'
 
 import { ElevationScroll } from './elevation-scroll.component'
 import {
@@ -16,6 +18,7 @@ import {
   StyledToolbar,
   Drawer,
   mediaQuery,
+  MenuButton,
 } from './app-bar-layout.styles'
 
 interface ToolbarLayoutProps {
@@ -71,9 +74,9 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
                 </>
               )}
               {isMobile && (
-                <ButtonBase onClick={openSidebar}>
-                  <Logo />
-                </ButtonBase>
+                <MenuButton onClick={openSidebar}>
+                  <MenuIcon />
+                </MenuButton>
               )}
             </StyledToolbar>
           </Container>
