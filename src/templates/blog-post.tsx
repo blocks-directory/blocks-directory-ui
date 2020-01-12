@@ -14,6 +14,7 @@ const Date = styled.p`
 const PostTitle = styled.h1`
   margin-top: ${rhythm(1)};
   margin-bottom: 0;
+  font-size: ${scale(0.5).fontSize};
 `
 const Spacer = styled.hr`
   margin-bottom: ${rhythm(1)};

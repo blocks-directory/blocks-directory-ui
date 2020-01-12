@@ -10,7 +10,7 @@ import FullLogo from '../../svg/full-logo-dark.svg'
 const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
-  max-width: ${rhythm(26)};
+  max-width: ${rhythm(20)};
   min-height: 100vh;
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
 `

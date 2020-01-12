@@ -19,7 +19,7 @@ export default createGlobalStyle`
     font-weight: bolder;
   }
   body {
-    color: rgba(0, 0, 0, 0.87);
+    color: #333333;
     margin: 0;
     font-size: 0.875rem;
     font-family: Quicksand,Segoe UI,"Helvetica", "Arial", sans-serif;

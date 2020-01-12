@@ -1,9 +1,11 @@
 import Typography from 'typography'
 
 const typography = new Typography({
-  baseFontSize: '18px',
+  baseFontSize: '22px',
   baseLineHeight: 1.666,
   headerWeight: 500,
+  bodyWeight: 400,
+  bodyColor: '#000',
   headerFontFamily: [
     'Quicksand',
     'sans-serif',
@@ -12,7 +14,14 @@ const typography = new Typography({
     'Arial',
     'sans-serif',
   ],
-  bodyFontFamily: ['Quicksand', 'sans-serif'],
+  bodyFontFamily: [
+    'Quicksand',
+    'sans-serif',
+    'Segoe UI',
+    'Helvetica',
+    'Arial',
+    'sans-serif',
+  ],
   overrideStyles: () => ({
     html: {
       overflowY: 'initial',
