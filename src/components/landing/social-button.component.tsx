@@ -15,6 +15,7 @@ const StyledFab = styled(Fab)`
 const Icon = styled.img`
   width: 24px;
   height: 24px;
+  margin-bottom: 0;
 `
 
 export interface SocialButtonProps {
