@@ -1,11 +1,16 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Link } from 'gatsby'
 
-import './layout.css'
 import { rhythm, scale } from '../../utils/typography'
 import { ExternalLink } from './link'
 import FullLogo from '../../svg/full-logo-dark.svg'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+      background: linear-gradient(180deg, #FFFFFF 19.47%, #F7FCFF 100%), #FFFFFF;
+  }
+`
 
 const Wrapper = styled.div`
   margin-left: auto;
@@ -43,6 +48,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <Wrapper>
+      <GlobalStyle />
       <header>{header}</header>
       <main>{children}</main>
       <footer>
