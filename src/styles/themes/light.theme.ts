@@ -1,5 +1,5 @@
 const PRIMARY = '#1D4E89'
-const SECONDARY = 'rgba(0, 0, 0, 0.6)'
+const SECONDARY = '#4aad90'
 
 export const light = {
   primary: { main: PRIMARY },
