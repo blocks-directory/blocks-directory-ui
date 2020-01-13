@@ -42,7 +42,7 @@ const getAppBarBackground = (p: AppBarProps) => {
   return `background: ${p.theme.palette.primary.main} url("/app_bar_bg.png") center 0 no-repeat`
 }
 
-export const StyledAppBar = styled(({ transparent, ...props }) => <AppBar {...props} />)<AppBarProps>`
+export const StyledAppBar = styled(({ transparent, isMobile, ...props }) => <AppBar {...props} />)<AppBarProps>`
   ${getAppBarBackground};
   background-size: cover;
 `
