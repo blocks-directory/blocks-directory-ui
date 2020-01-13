@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
+import typography from '../../utils/typography'
 
 export interface SeoProps {
   description?: string
@@ -50,6 +51,8 @@ export const Seo = ({ description = '', lang = 'en', meta = [], title }: SeoProp
           content: 'website',
         },
       ].concat(meta)}
-    />
+    >
+      <style>{typography.toString()}</style>
+    </Helmet>
   )
 }
