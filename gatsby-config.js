@@ -113,5 +113,6 @@ module.exports = {
         display: 'block',
       },
     },
+    'gatsby-plugin-layout',
   ],
 }
