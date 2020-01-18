@@ -1,13 +1,13 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { Card, Chip, IconButton, Typography } from '@material-ui/core'
+import { Card, IconButton, Typography } from '@material-ui/core'
 import { DateTime } from 'luxon'
 import { capitalize, upperCase } from 'lodash-es'
-
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 import { findProjects_findProjects as Project } from '../../graphql/queries/types/findProjects'
+import { Tag } from '../tag.component'
 
 const Wrapper = styled(Card)`
   display: flex;
@@ -31,17 +31,6 @@ const Tags = styled.div`
   display: flex;
   margin: 16px 0 16px -4px;
   flex-wrap: wrap;
-`
-const Tag = styled(Chip)`
-  margin-right: 10px;
-  font-size: 16px;
-  line-height: 20px;
-  height: 36px;
-  border-radius: 10px;
-  background: #F3F4F5;
-  .MuiChip-label {
-    padding: 0 18px;
-  }
 `
 const RepositoryLink = styled(IconButton as any)`
   max-height: 48px;
@@ -74,8 +63,10 @@ export const ProjectListCard = memo(({ project }: ProjectListCardProps) => (
         </Typography>
       </div>
     </LeftContent>
-    <RepositoryLink>
-      <GitHubIcon />
-    </RepositoryLink>
+    <a href={project.repositoryUrl} target="_blank" rel="noopener noreferrer">
+      <RepositoryLink>
+        <GitHubIcon />
+      </RepositoryLink>
+    </a>
   </Wrapper>
 ))
