@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { Card, Chip, IconButton, Typography } from '@material-ui/core'
 import { DateTime } from 'luxon'
 import { capitalize, upperCase } from 'lodash-es'
@@ -47,6 +48,9 @@ const RepositoryLink = styled(IconButton as any)`
   margin-top: -10px;
   color: black;
 `
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`
 
 type ProjectListCardProps = {
   project: Project
@@ -55,7 +59,9 @@ type ProjectListCardProps = {
 export const ProjectListCard = memo(({ project }: ProjectListCardProps) => (
   <Wrapper>
     <LeftContent>
-      <Title>{project.name}</Title>
+      <Title>
+        <StyledLink to={`/project/${encodeURIComponent(project.id)}`}>{project.name}</StyledLink>
+      </Title>
       <div>
         <Typography>{project.description}</Typography>
         <Tags>
