@@ -20,6 +20,7 @@ import {
   mediaQuery,
   MenuButton,
 } from './app-bar-layout.styles'
+import { Stars } from '../landing'
 
 interface ToolbarLayoutProps {
   children?: JSX.Element | JSX.Element []
@@ -45,6 +46,7 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
           transparent={fullPageContent}
           isMobile={isMobile}
         >
+          <Stars />
           <Container>
             <StyledToolbar>
               {!isMobile && (

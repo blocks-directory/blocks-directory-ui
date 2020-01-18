@@ -39,7 +39,7 @@ const getAppBarBackground = (p: AppBarProps) => {
     return 'background: rgba(65, 65, 65, 0.12)'
   }
 
-  return `background: ${p.theme.palette.primary.main} url("/app_bar_bg.png") center 0 no-repeat`
+  return 'background: linear-gradient(322.36deg, #01bbf9 0.58%, #203BDD 112.86%)'
 }
 
 export const StyledAppBar = styled(({ transparent, isMobile, ...props }) => <AppBar {...props} />)<AppBarProps>`
