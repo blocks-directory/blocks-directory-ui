@@ -10,6 +10,8 @@ type MdViewerProps = {
 
 const Wrapper = styled.div`
   margin: 10px 0;
+  color: #000000;
+  font-size: 16px;
 `
 
 export const MdViewer = ({ url }: MdViewerProps) => {

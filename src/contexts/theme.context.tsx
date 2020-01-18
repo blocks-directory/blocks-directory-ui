@@ -54,6 +54,7 @@ const ThemeProvider = memo(({ children }: ThemeProviderProps) => {
       caption: {
         fontSize: '16px',
         lineHeight: '20px',
+        color: 'rgba(0, 0, 0, 0.6)',
       },
       h2: {
         fontWeight: 'bold',
