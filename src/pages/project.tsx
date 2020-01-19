@@ -25,27 +25,30 @@ const Title = styled(Typography)`
 `
 const MetaInfo = styled.div`
   display: grid;
-  grid-template-columns: 80px 150px 110px 100px;
   grid-gap: 15px;
-  margin-top: 20px;
+  grid-template-columns: 110px 150px;
+  margin-bottom: 15px;
 `
 const InfoTitle = styled.div`
+  height: 36px;
   margin-right: 10px;
   font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  width: 110px;
   color: rgba(0, 0, 0, 0.6);
 `
 const InfoValue = styled.div`
-  height: 100%;
+  height: 36px;
   font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   font-weight: 500;
+  width: 150px;
   color: #000000;
 `
 const RepositoryUrl = styled.a`
@@ -63,6 +66,12 @@ const ExternalLinkIcon = styled(ExternalLink)`
   max-width: 15px;
   max-height: 15px;
 `
+const Row = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
 
 const ProjectPage = ({ projectId }: any) => {
   const { data, loading } = useQuery<Project>(getProjectById,
@@ -73,7 +82,7 @@ const ProjectPage = ({ projectId }: any) => {
   } = data?.getProjectById ?? {} as any
 
   return (
-    <AppBarLayout title="">
+    <AppBarLayout title={name}>
       <Wrapper>
         {loading && (
           <>
@@ -91,27 +100,30 @@ const ProjectPage = ({ projectId }: any) => {
               Last commit {DateTime.fromISO(lastCommitDate).toRelative()}
             </Typography>
 
-            <MetaInfo>
-              <InfoTitle>Type</InfoTitle>
-              <div><Tag label={capitalize(platform)} /></div>
+            <Row>
+              <MetaInfo>
+                <InfoTitle>Type</InfoTitle>
+                <div><Tag label={capitalize(platform)} /></div>
 
-              <InfoTitle>Repository</InfoTitle>
-              <RepositoryUrl href={repositoryUrl} rel="noopener noreferrer" target="_blank">
-                <div>github <ExternalLinkIcon /></div>
-              </RepositoryUrl>
+                <InfoTitle>Runtime</InfoTitle>
+                <div><Tag label={capitalize(runtime)} /></div>
 
-              <InfoTitle>Runtime</InfoTitle>
-              <div><Tag label={capitalize(runtime)} /></div>
+                <InfoTitle>Provider</InfoTitle>
+                <div><Tag label={upperCase(provider)} /></div>
+              </MetaInfo>
+              <MetaInfo>
+                <InfoTitle>Repository</InfoTitle>
+                <RepositoryUrl href={repositoryUrl} rel="noopener noreferrer" target="_blank">
+                  <div>github <ExternalLinkIcon /></div>
+                </RepositoryUrl>
 
-              <InfoTitle>Open issues</InfoTitle>
-              <InfoValue>{openIssues}</InfoValue>
+                <InfoTitle>Open issues</InfoTitle>
+                <InfoValue>{openIssues}</InfoValue>
 
-              <InfoTitle>Provider</InfoTitle>
-              <div><Tag label={upperCase(provider)} /></div>
-
-              <InfoTitle>Pull requests</InfoTitle>
-              <InfoValue>{pullRequests}</InfoValue>
-            </MetaInfo>
+                <InfoTitle>Pull requests</InfoTitle>
+                <InfoValue>{pullRequests}</InfoValue>
+              </MetaInfo>
+            </Row>
             <MdViewer url={readmeUrl} />
           </div>
         )}
