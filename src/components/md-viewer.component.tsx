@@ -12,6 +12,10 @@ const Wrapper = styled.div`
   margin: 10px 0;
   color: #000000;
   font-size: 16px;
+  pre {
+    white-space: pre-wrap;
+    word-break: keep-all;
+  }
 `
 
 export const MdViewer = ({ url }: MdViewerProps) => {
