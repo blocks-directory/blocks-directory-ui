@@ -29,7 +29,7 @@ const Title = styled(Typography)`
 `
 const Tags = styled.div`
   display: flex;
-  margin: 16px 0 16px -4px;
+  margin: 16px 0 0 -4px;
   flex-wrap: wrap;
 `
 const RepositoryLink = styled(IconButton as any)`
@@ -39,6 +39,9 @@ const RepositoryLink = styled(IconButton as any)`
 `
 const StyledLink = styled(Link)`
   text-decoration: none;
+`
+const StyledTag = styled(Tag)`
+  margin: 0 10px 16px 0;
 `
 
 type ProjectListCardProps = {
@@ -54,9 +57,9 @@ export const ProjectListCard = memo(({ project }: ProjectListCardProps) => (
       <div>
         <Typography>{project.description}</Typography>
         <Tags>
-          <Tag label={capitalize(project.platform!)} />
-          <Tag label={capitalize(project.runtime!)} />
-          <Tag label={upperCase(project.provider!)} />
+          <StyledTag label={capitalize(project.platform!)} />
+          <StyledTag label={capitalize(project.runtime!)} />
+          <StyledTag label={upperCase(project.provider!)} />
         </Tags>
         <Typography variant="caption">
           Last commit {DateTime.fromISO(project.lastCommitDate!).toRelative()}
