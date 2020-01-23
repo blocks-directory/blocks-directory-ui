@@ -31,6 +31,7 @@ import {
   Stars,
   VideoBlock,
 } from '../components'
+import {envConfig} from "../configs";
 
 export default () => {
   const [query, setQuery] = useState('')
@@ -128,7 +129,10 @@ export default () => {
           Join the community
         </CommunityHeader>
         <SocialButtons>
-          <SocialButton icon="/slack.svg" url="https://google.com" />
+          <SocialButton
+            icon="/slack.svg"
+            url={envConfig.joinSlackLink}
+          />
         </SocialButtons>
         <Email>
           Have more questions? Contact us at <a href="mailto:contact@blocks.directory">contact@blocks.directory</a>
