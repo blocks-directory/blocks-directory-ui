@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from 'react'
+import React, { memo, useCallback, useContext, useState } from 'react'
 import { Toolbar, Container, useMediaQuery, Box } from '@material-ui/core'
 import { Helmet } from 'react-helmet'
 
@@ -22,6 +22,7 @@ import {
 } from './app-bar-layout.styles'
 import { Stars } from '../landing'
 import { OpacityAppear } from '../opacity-appear.component'
+import { InitialLoadContext } from '../../contexts/initial-load.context'
 
 interface ToolbarLayoutProps {
   children?: JSX.Element | JSX.Element []
@@ -32,12 +33,8 @@ interface ToolbarLayoutProps {
 export const AppBarLayout = memo(({ children, title = '', fullPageContent }: ToolbarLayoutProps) => {
   const [isOpen, setOpen] = useState(false)
   const isMobile = useMediaQuery(`(${mediaQuery})`)
-  const [didMount, setDidMount] = useState(false)
 
-  useEffect(() => {
-    setDidMount(true)
-  }, [])
-
+  const { initialLoadComplete } = useContext(InitialLoadContext)
   const openSidebar = useCallback(() => setOpen(true), [setOpen])
   const closeSidebar = useCallback(() => setOpen(false), [setOpen])
 
@@ -54,7 +51,7 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
         >
           {!fullPageContent && <Stars />}
           <Container>
-            <OpacityAppear visible={didMount}>
+            <OpacityAppear visible={initialLoadComplete}>
               <StyledToolbar>
                 {!isMobile && (
                   <>

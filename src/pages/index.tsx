@@ -76,17 +76,17 @@ export default () => {
       </TitleBlock>
       <FeaturesBlock>
         <Features>
-              Features
+          Features
         </Features>
         <FeatureBlock>
           <FeatureLeftBlock>
             <FeatureTitle>
-                  Save time by reusing the microservices
+              Save time by reusing the microservices
             </FeatureTitle>
             <FeatureDescription>
-                  Microservices are isolated, and that’s what makes them easy to reuse.
-                  Solve your problem with a ready-made microservice
-                  and use saved time to do meaningful work.
+              Microservices are isolated, and that’s what makes them easy to reuse.
+              Solve your problem with a ready-made microservice
+              and use saved time to do meaningful work.
             </FeatureDescription>
           </FeatureLeftBlock>
           <DownloadMicroserviceIcon src="/download-microservice.svg" />
