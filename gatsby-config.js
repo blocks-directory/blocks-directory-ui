@@ -113,6 +113,7 @@ module.exports = {
         display: 'block',
       },
     },
+    'gatsby-plugin-netlify',
     'gatsby-plugin-layout',
   ],
 }
