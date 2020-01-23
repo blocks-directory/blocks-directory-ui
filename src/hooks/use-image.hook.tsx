@@ -1,30 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { UseImageContext } from '../contexts/use-image.context'
 
 interface UseImageState {
-  image?: HTMLImageElement
-  status: string
+  loaded: boolean
 }
 
-const defaultState = { image: undefined, status: 'loading' }
+const defaultState = { loaded: false }
 
 export const useImage = (url: string) => {
-  const res = useState<UseImageState>(defaultState)
-  const { image } = res[0]
-  const { status } = res[0]
-
-  const setState = res[1]
+  const { loadedImages, setImageLoaded } = useContext(UseImageContext)
+  const [{ loaded }, setState] = useState<UseImageState>({ loaded: loadedImages.indexOf(url) !== -1 })
 
   useEffect(
     () => {
-      if (!url) return () => {}
+      if (!url) {
+        return () => {}
+      }
+
+      if (loadedImages.indexOf(url) !== -1) {
+        setState({ loaded: true })
+      }
+
       const img = document.createElement('img')
 
       function onload() {
-        setState({ image: img, status: 'loaded' })
+        setState({ loaded: true })
+        setImageLoaded(url)
       }
 
       function onerror() {
-        setState({ image: undefined, status: 'failed' })
+        setState({ loaded: false })
       }
 
       img.addEventListener('load', onload)
@@ -40,8 +45,5 @@ export const useImage = (url: string) => {
     [url],
   )
 
-  // return array because it it better to use in case of several useImage hooks
-  // const [background, backgroundStatus] = useImage(url1);
-  // const [patter] = useImage(url2);
-  return [image, status]
+  return [loaded]
 }
