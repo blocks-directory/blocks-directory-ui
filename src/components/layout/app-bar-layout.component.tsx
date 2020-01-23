@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
 import { Toolbar, Container, useMediaQuery, Box } from '@material-ui/core'
 import { Helmet } from 'react-helmet'
 
@@ -21,6 +21,7 @@ import {
   MenuButton,
 } from './app-bar-layout.styles'
 import { Stars } from '../landing'
+import { OpacityAppear } from '../opacity-appear.component'
 
 interface ToolbarLayoutProps {
   children?: JSX.Element | JSX.Element []
@@ -31,6 +32,11 @@ interface ToolbarLayoutProps {
 export const AppBarLayout = memo(({ children, title = '', fullPageContent }: ToolbarLayoutProps) => {
   const [isOpen, setOpen] = useState(false)
   const isMobile = useMediaQuery(`(${mediaQuery})`)
+  const [didMount, setDidMount] = useState(false)
+
+  useEffect(() => {
+    setDidMount(true)
+  }, [])
 
   const openSidebar = useCallback(() => setOpen(true), [setOpen])
   const closeSidebar = useCallback(() => setOpen(false), [setOpen])
@@ -46,41 +52,43 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
           transparent={fullPageContent}
           isMobile={isMobile}
         >
-          <Stars />
+          {!fullPageContent && <Stars />}
           <Container>
-            <StyledToolbar>
-              {!isMobile && (
-                <>
-                  <LogoButton to="/">
-                    <Logo />
-                  </LogoButton>
-                  <Flex />
-                  <HeaderList>
-                    <HeaderButton to="/projects">
+            <OpacityAppear visible={didMount}>
+              <StyledToolbar>
+                {!isMobile && (
+                  <>
+                    <LogoButton to="/">
+                      <Logo />
+                    </LogoButton>
+                    <Flex />
+                    <HeaderList>
+                      <HeaderButton to="/projects">
                       Browse
-                    </HeaderButton>
-                    <Divider />
-                    <HeaderButton to="/submit-project">
+                      </HeaderButton>
+                      <Divider />
+                      <HeaderButton to="/submit-project">
                       Submit Project
-                    </HeaderButton>
-                    <Divider />
-                    <HeaderButton to="/blog">
+                      </HeaderButton>
+                      <Divider />
+                      <HeaderButton to="/blog">
                       Blog
-                    </HeaderButton>
-                    <Divider />
-                    <HeaderButton to="/about">
+                      </HeaderButton>
+                      <Divider />
+                      <HeaderButton to="/about">
                       About
-                    </HeaderButton>
-                    <Divider />
-                  </HeaderList>
-                </>
-              )}
-              {isMobile && (
+                      </HeaderButton>
+                      <Divider />
+                    </HeaderList>
+                  </>
+                )}
+                {isMobile && (
                 <MenuButton onClick={openSidebar}>
                   <MenuIcon />
                 </MenuButton>
-              )}
-            </StyledToolbar>
+                )}
+              </StyledToolbar>
+            </OpacityAppear>
           </Container>
         </StyledAppBar>
       </ElevationScroll>

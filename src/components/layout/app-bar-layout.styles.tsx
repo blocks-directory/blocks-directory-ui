@@ -35,6 +35,7 @@ const getAppBarBackground = (p: AppBarProps) => {
   if (p.isMobile && p.transparent) {
     return `background: ${fade(p.theme.palette.primary.main, 0.85)}`
   }
+
   if (p.transparent) {
     return 'background: rgba(65, 65, 65, 0.12)'
   }

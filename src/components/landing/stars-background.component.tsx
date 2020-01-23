@@ -1,12 +1,11 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { useSpring, animated } from 'react-spring'
 
 import { useImage } from '../../hooks/use-image.hook'
+import { OpacityAppear } from '../opacity-appear.component'
 
-export const StarsBackground = styled.div`
+export const StarsBackground = styled(OpacityAppear)`
   background: url('/stars.svg') center 0 no-repeat;
-  transition: all 1000ms linear;
   background-size: cover;
   position: absolute;
   left: 0;
@@ -15,21 +14,8 @@ export const StarsBackground = styled.div`
   height: 100%;
 `
 
-
 export const Stars = () => {
   const [img] = useImage('/stars.svg')
-  const [props, set] = useSpring(() => ({
-    opacity: 0,
-    config: {
-      duration: 1000,
-    },
-  }))
 
-  if (img) {
-    set({ opacity: 1 })
-
-    return <animated.div style={props}><StarsBackground /></animated.div>
-  }
-
-  return null
+  return <StarsBackground visible={!!img} />
 }
