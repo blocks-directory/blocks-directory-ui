@@ -102,10 +102,6 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
           Blog
         </HeaderButton>
         <Divider />
-        <HeaderButton to="/about">
-          About
-        </HeaderButton>
-        <Divider />
       </Drawer>
       <Content>
         <Container>
