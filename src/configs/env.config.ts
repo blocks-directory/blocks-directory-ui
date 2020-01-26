@@ -9,7 +9,7 @@ const config: any = {
     joinSlackLink,
   },
   prod: {
-    apolloUri: 'https://dev-api.blocks.directory/graphql',
+    apolloUri: 'https://api.blocks.directory/graphql',
     joinSlackLink,
   },
 }
