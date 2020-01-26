@@ -1,20 +1,32 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { ApolloProvider } from '@apollo/react-hooks'
 
-import { client } from '../graphql/apollo.utils'
+import { getClient } from '../graphql/apollo.utils'
 import { ThemeProvider } from '../contexts'
 import { InitialLoadProvider } from '../contexts/initial-load.context'
 import { UseImageProvider } from '../contexts/use-image.context'
 
-export default ({ children }: any) => (
-  // eslint-disable-next-line react/jsx-filename-extension
-  <ApolloProvider client={client}>
-    <InitialLoadProvider>
-      <ThemeProvider>
-        <UseImageProvider>
-          {children}
-        </UseImageProvider>
-      </ThemeProvider>
-    </InitialLoadProvider>
-  </ApolloProvider>
-)
+const envQuery = graphql`{
+  site {
+    siteMetadata {
+      env
+    }
+  }
+}`
+
+
+export default ({ children }: any) => {
+  const data = useStaticQuery(envQuery)
+  return (
+    <ApolloProvider client={getClient(data.site.siteMetadata.env)}>
+      <InitialLoadProvider>
+        <ThemeProvider>
+          <UseImageProvider>
+            {children}
+          </UseImageProvider>
+        </ThemeProvider>
+      </InitialLoadProvider>
+    </ApolloProvider>
+  )
+}

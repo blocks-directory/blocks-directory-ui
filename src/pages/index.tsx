@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { navigate } from '@reach/router'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import {
   AppBarLayout,
@@ -31,13 +32,24 @@ import {
   Stars,
   VideoBlock,
 } from '../components'
-import {envConfig} from "../configs";
+import { getEnvConfig } from '../configs'
+
+const envQuery = graphql`{
+  site {
+    siteMetadata {
+      env
+    }
+  }
+}`
+
 
 export default () => {
   const [query, setQuery] = useState('')
   const goToSearch = useCallback(() => {
     navigate(`/projects?query=${query}`)
   }, [query])
+
+  const data = useStaticQuery(envQuery)
 
   return (
     <AppBarLayout title="Home" fullPageContent>
@@ -131,7 +143,7 @@ export default () => {
         <SocialButtons>
           <SocialButton
             icon="/slack.svg"
-            url={envConfig.joinSlackLink}
+            url={getEnvConfig(data.site.siteMetadata.env).joinSlackLink}
           />
         </SocialButtons>
         <Email>

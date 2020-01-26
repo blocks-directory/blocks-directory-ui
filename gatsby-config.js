@@ -1,9 +1,12 @@
 // const path = require('path')
 
+const env = process.env.REACT_APP_ENV || 'dev'
+
 module.exports = {
   siteMetadata: {
     title: 'blocks.directory Blog',
     description: 'We believe in reusable microservices.',
+    env,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -1,9 +1,9 @@
 import ApolloClient from 'apollo-boost'
 import fetch from 'isomorphic-fetch'
 
-import { envConfig } from '../configs'
+import { getEnvConfig } from '../configs'
 
-export const client = new ApolloClient({
-  uri: envConfig.apolloUri,
+export const getClient = (env: string) => new ApolloClient({
+  uri: getEnvConfig(env).apolloUri,
   fetch,
 })
