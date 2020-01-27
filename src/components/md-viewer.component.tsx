@@ -16,6 +16,10 @@ const Wrapper = styled.div`
     white-space: pre-wrap;
     word-break: keep-all;
   }
+  
+  img {
+    max-width: 100%;
+  }
 `
 
 export const MdViewer = ({ url }: MdViewerProps) => {
