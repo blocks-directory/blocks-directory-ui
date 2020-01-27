@@ -71,8 +71,6 @@ export const SearchButton = styled(Fab)`
   height: 60px;
 `
 
-
-
 export const EmbedContainer = styled.div`
   position: relative; 
   padding-bottom: 56.25%; 

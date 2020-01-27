@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useDebounce } from 'react-use'
 import { FormControl, CircularProgress } from '@material-ui/core'
 import { useQuery } from '@apollo/react-hooks'
-import { isEmpty, map, get } from 'lodash-es'
+import { isEmpty, map, get, isUndefined } from 'lodash-es'
 import { Router, navigate } from '@reach/router'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import queryString from 'query-string'
@@ -46,7 +46,7 @@ const ProjectsPage = ({ location }: any) => {
     { variables: { query: debouncedQuery } })
   const [hasMore, setHasMore] = useState<{ [key: string]: boolean }>({})
 
-  const currentQueryHasMore = hasMore[query] == null ? true : hasMore[query]
+  const currentQueryHasMore = hasMore[query] || isUndefined(hasMore[query])
 
   const loadMore = useCallback(() => {
     if (loadingMore) {
@@ -77,7 +77,9 @@ const ProjectsPage = ({ location }: any) => {
   }, [data, loadingMore])
 
   useDebounce(() => {
-    navigate(`/projects?query=${query}`)
+    if (query !== debouncedQuery) {
+      navigate(`/projects?query=${query}`)
+    }
   }, 700, [query])
 
   const projects = data?.findProjects || []
