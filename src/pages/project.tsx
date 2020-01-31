@@ -124,7 +124,7 @@ const ProjectPage = ({ projectId }: any) => {
                 <InfoValue>{pullRequests}</InfoValue>
               </MetaInfo>
             </Row>
-            <MdViewer url={readmeUrl} />
+            <MdViewer url={readmeUrl} repositoryUrl={repositoryUrl} />
           </div>
         )}
       </Wrapper>
