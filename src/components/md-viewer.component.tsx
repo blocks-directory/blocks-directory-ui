@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import { useAsync } from 'react-use'
 import ReactMarkdown from 'react-markdown'
 import { CircularProgress } from '@material-ui/core'
+import { replace, startsWith } from 'lodash-es'
 
 type MdViewerProps = {
   url: string
@@ -29,6 +30,14 @@ export const MdViewer = ({ url }: MdViewerProps) => {
     return result
   }, [url])
 
+  const transformImageUri = useCallback((imageUri: string) => {
+    if (!startsWith(imageUri, 'http')) {
+      const baseUrl = replace(url, 'README.md', '')
+      return `${baseUrl}${imageUri}`
+    }
+    return imageUri
+  }, [url])
+
 
   if (loading) {
     return (
@@ -44,7 +53,7 @@ export const MdViewer = ({ url }: MdViewerProps) => {
 
   return (
     <Wrapper>
-      <ReactMarkdown source={value} />
+      <ReactMarkdown source={value} transformImageUri={transformImageUri} />
     </Wrapper>
   )
 }

@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   bottom: 0;
   transform: translateY(50%); 
   background: linear-gradient(180deg, #FFFFFF -28.01%, #D9E8FF 250.27%);
-  box-shadow: 0px 1px 4px rgba(100, 129, 170, 0.18), 0px 35px 50px rgba(92, 131, 192, 0.2);
+  box-shadow: 0 1px 4px rgba(100, 129, 170, 0.18), 0px 35px 50px rgba(92, 131, 192, 0.2);
   max-width: 720px;
   width: calc(100% - 40px);
 `
