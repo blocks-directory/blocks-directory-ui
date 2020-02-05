@@ -42,9 +42,23 @@ const ProjectsPage = ({ location }: any) => {
   const debouncedQuery = get(queryString.parse(location.search), 'query', '') as string
   const [query, setQuery] = useState(debouncedQuery)
   const [loadingMore, setLoadingMore] = useState(false)
-  const { data, fetchMore, loading } = useQuery<Projects>(projectsList,
-    { variables: { query: debouncedQuery } })
   const [hasMore, setHasMore] = useState<{ [key: string]: boolean }>({})
+
+  const checkQueryHasMore = useCallback((data: Projects) => {
+    if (data.findProjects.length < 20) {
+      setHasMore({
+        ...hasMore,
+        [query]: false,
+      })
+    }
+  }, [query, hasMore, setHasMore])
+
+  const { data, fetchMore, loading } = useQuery<Projects>(projectsList, {
+    variables: {
+      query: debouncedQuery,
+    },
+    onCompleted: checkQueryHasMore,
+  })
 
   const currentQueryHasMore = hasMore[query] || isUndefined(hasMore[query])
 
@@ -62,12 +76,7 @@ const ProjectsPage = ({ location }: any) => {
       updateQuery: (prev, { fetchMoreResult }) => {
         if (!fetchMoreResult) return prev
 
-        if (fetchMoreResult.findProjects.length < 20) {
-          setHasMore({
-            ...hasMore,
-            [query]: false,
-          })
-        }
+        checkQueryHasMore(fetchMoreResult)
 
         return { ...prev, findProjects: [...prev.findProjects, ...fetchMoreResult.findProjects] }
       },
