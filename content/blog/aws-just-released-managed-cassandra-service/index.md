@@ -1,5 +1,5 @@
 ---
-title: AWS Released Managed Apache Cassandra. Here's what you need to know.
+title: Aws Released Managed Apache Cassandra. Here's What You Need to Know.
 date: "2020-02-16T19:55:24.284Z"
 description: "AWS Released Managed Apache Cassandra. Here's the key things you need to know about the Managed Cassandra Service and differences between Cassandra and DynamoDB."
 ---
