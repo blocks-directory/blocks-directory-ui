@@ -21,6 +21,7 @@ type Project {
   readmeUrl: String
   repositoryUrl: String!
   runtime: String
+  writtenIn: String
 }
 
 type ProjectListData {
@@ -32,6 +33,7 @@ type ProjectListData {
   provider: String
   repositoryUrl: String!
   runtime: String
+  writtenIn: String
 }
 
 type Query {

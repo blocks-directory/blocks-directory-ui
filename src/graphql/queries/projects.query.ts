@@ -9,6 +9,7 @@ export const projectsList = gql`
       platform
       runtime
       provider
+      writtenIn
       lastCommitDate
       repositoryUrl
     }

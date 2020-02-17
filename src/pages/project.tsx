@@ -27,6 +27,7 @@ const MetaInfo = styled.div`
   display: grid;
   grid-gap: 15px;
   grid-template-columns: 110px 150px;
+  grid-template-rows: repeat(1, 36px);
   margin-bottom: 15px;
 `
 const InfoTitle = styled.div`
@@ -78,7 +79,7 @@ const ProjectPage = ({ projectId }: any) => {
     { variables: { id: projectId } })
 
   const {
-    name, lastCommitDate, runtime, provider, readmeUrl, platform, repositoryUrl, openIssues, pullRequests,
+    name, lastCommitDate, runtime, writtenIn, provider, readmeUrl, platform, repositoryUrl, openIssues, pullRequests,
   } = data?.getProjectById ?? {} as any
 
   return (
@@ -105,11 +106,26 @@ const ProjectPage = ({ projectId }: any) => {
                 <InfoTitle>Type</InfoTitle>
                 <div><Tag label={capitalize(platform)} /></div>
 
-                <InfoTitle>Runtime</InfoTitle>
-                <div><Tag label={capitalize(runtime)} /></div>
+                {writtenIn && (
+                  <>
+                    <InfoTitle>Written In</InfoTitle>
+                    <div><Tag label={capitalize(writtenIn)} /></div>
+                  </>
+                )}
 
-                <InfoTitle>Provider</InfoTitle>
-                <div><Tag label={upperCase(provider)} /></div>
+                {runtime && (
+                  <>
+                    <InfoTitle>Runtime</InfoTitle>
+                    <div><Tag label={capitalize(runtime)} /></div>
+                  </>
+                )}
+
+                {provider && (
+                  <>
+                    <InfoTitle>Provider</InfoTitle>
+                    <div><Tag label={upperCase(provider)} /></div>
+                  </>
+                )}
               </MetaInfo>
               <MetaInfo>
                 <InfoTitle>Repository</InfoTitle>

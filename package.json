@@ -84,5 +84,8 @@
     "gatsby-transformer-remark": "^2.6.49",
     "gatsby-transformer-sharp": "2.3.13",
     "typescript": "^3.7.5"
+  },
+  "resolutions": {
+    "graphql": "14.6.0"
   }
 }

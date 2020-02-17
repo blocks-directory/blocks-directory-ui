@@ -14,6 +14,7 @@ export interface getProjectById_getProjectById {
   platform: string;
   runtime: string | null;
   provider: string | null;
+  writtenIn: string | null;
   repositoryUrl: string;
   openIssues: number | null;
   pullRequests: number | null;

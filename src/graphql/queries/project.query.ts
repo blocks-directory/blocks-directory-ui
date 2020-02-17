@@ -9,6 +9,7 @@ export const getProjectById = gql`
       platform
       runtime
       provider
+      writtenIn
       repositoryUrl
       openIssues
       pullRequests

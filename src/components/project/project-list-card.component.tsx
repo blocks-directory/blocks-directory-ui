@@ -58,8 +58,9 @@ export const ProjectListCard = memo(({ project }: ProjectListCardProps) => (
         <Typography>{project.description}</Typography>
         <Tags>
           <StyledTag label={capitalize(project.platform!)} />
-          <StyledTag label={capitalize(project.runtime!)} />
-          <StyledTag label={upperCase(project.provider!)} />
+          {project.runtime && <StyledTag label={capitalize(project.runtime!)} />}
+          {project.provider && <StyledTag label={upperCase(project.provider!)} />}
+          {project.writtenIn && <StyledTag label={capitalize(project.writtenIn!)} />}
         </Tags>
         <Typography variant="caption">
           Last commit {DateTime.fromISO(project.lastCommitDate!).toRelative()}

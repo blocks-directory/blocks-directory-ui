@@ -14,6 +14,7 @@ export interface findProjects_findProjects {
   platform: string;
   runtime: string | null;
   provider: string | null;
+  writtenIn: string | null;
   lastCommitDate: string;
   repositoryUrl: string;
 }
