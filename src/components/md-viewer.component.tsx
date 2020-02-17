@@ -61,7 +61,12 @@ export const MdViewer = ({ url, repositoryUrl }: MdViewerProps) => {
 
   return (
     <Wrapper className="markdown-body">
-      <ReactMarkdown source={value} transformImageUri={transformUri} transformLinkUri={transformLinkUri} />
+      <ReactMarkdown
+        source={value}
+        transformImageUri={transformUri}
+        transformLinkUri={transformLinkUri}
+        escapeHtml={false}
+      />
     </Wrapper>
   )
 }
