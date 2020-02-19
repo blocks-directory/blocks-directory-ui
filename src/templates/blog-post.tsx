@@ -32,10 +32,8 @@ export const StyledExternalLink = styled.a`
   color: #1093EB;
 `
 
-const anyWindow = window as any
-
 const BlogPostTemplate = (props: any) => {
-  const { pageContext: { previous, next }, data } = props
+  const { pageContext: { previous, next }, data, location } = props
   const post = data.markdownRemark
 
   return (
@@ -53,7 +51,7 @@ const BlogPostTemplate = (props: any) => {
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       <p>
         <StyledExternalLink
-          href={`https://mobile.twitter.com/search?q=${encodeURIComponent(anyWindow.location)}`}
+          href={`https://mobile.twitter.com/search?q=${encodeURIComponent(location.href)}`}
           target="_blank"
           rel="noopener noreferrer"
         >
