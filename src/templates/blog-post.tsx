@@ -28,6 +28,11 @@ const NavigationWrapper = styled.ul`
   list-style: none;
   padding: 0;
 `
+export const StyledExternalLink = styled.a`
+  color: #1093EB;
+`
+
+const anyWindow = window as any
 
 const BlogPostTemplate = (props: any) => {
   const { pageContext: { previous, next }, data } = props
@@ -46,6 +51,15 @@ const BlogPostTemplate = (props: any) => {
         {post.frontmatter.date}
       </Date>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <p>
+        <StyledExternalLink
+          href={`https://mobile.twitter.com/search?q=${encodeURIComponent(anyWindow.location)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Discuss on Twitter
+        </StyledExternalLink>
+      </p>
       <Spacer />
       <Bio />
       <NavigationWrapper>
