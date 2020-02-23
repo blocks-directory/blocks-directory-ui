@@ -151,6 +151,14 @@ export default () => {
             icon="/slack.svg"
             url={getEnvConfig(data.site.siteMetadata.env).joinSlackLink}
           />
+          <SocialButton
+            icon="/twitter.svg"
+            url="https://twitter.com/BlocksDirectory"
+          />
+          <SocialButton
+            icon="/github.svg"
+            url="https://github.com/blocks-directory"
+          />
         </SocialButtons>
         <Email>
           Have more questions? Contact us at <a href="mailto:contact@blocks.directory">contact@blocks.directory</a>

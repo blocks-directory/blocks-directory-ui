@@ -6,6 +6,7 @@ const StyledFab = styled(Fab)`
   background: #FFFFFF;
   width: 48px;
   height: 48px;
+  margin: 0 10px;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.1);
   &:active {
     box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.1);
