@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { navigate } from '@reach/router'
 import { graphql, useStaticQuery } from 'gatsby'
 
+import { CSSTransition } from 'react-transition-group'
 import {
   AppBarLayout,
   TitleBlock,
@@ -33,6 +34,7 @@ import {
   VideoBlock,
 } from '../components'
 import { getEnvConfig } from '../configs'
+import { OpacityAppear } from '../components/opacity-appear.component'
 
 const envQuery = graphql`{
   site {
@@ -80,10 +82,14 @@ export default () => {
               variant="extended"
               onClick={goToSearch}
             >
-              Search
+              <OpacityAppear visible={!!query}>
+                {query && 'Search'}
+              </OpacityAppear>
+              <OpacityAppear visible={!query}>
+                {!query && 'Browse'}
+              </OpacityAppear>
             </SearchButton>
           </SearchRow>
-
           <VideoBlock />
         </TitleBlockContent>
       </TitleBlock>
