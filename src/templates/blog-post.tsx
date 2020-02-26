@@ -1,7 +1,8 @@
 /* eslint-disable react/no-danger */
-import React from 'react'
+import React, { useMemo } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import Disqus from 'disqus-react'
 
 import { rhythm, scale } from '../utils/typography'
 import { Bio, Layout, Seo, StyledLink } from '../components/blog'
@@ -36,6 +37,12 @@ const BlogPostTemplate = (props: any) => {
   const { pageContext: { previous, next }, data, location } = props
   const post = data.markdownRemark
 
+  const disqusConfig = useMemo(() => ({
+    url: 'https://blocks.directory/',
+    identifier: post.id,
+    title: post.excerpt,
+  }), [post])
+
   return (
     <Layout>
       <Seo
@@ -58,6 +65,7 @@ const BlogPostTemplate = (props: any) => {
           Discuss on Twitter
         </StyledExternalLink>
       </p>
+      <Disqus.DiscussionEmbed shortname="blocks-directory" config={disqusConfig} />
       <Spacer />
       <Bio />
       <NavigationWrapper>
