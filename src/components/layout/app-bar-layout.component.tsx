@@ -61,15 +61,15 @@ export const AppBarLayout = memo(({ children, title = '', fullPageContent }: Too
                     <Flex />
                     <HeaderList>
                       <HeaderButton to="/projects">
-                      Browse
+                        Browse
                       </HeaderButton>
                       <Divider />
                       <HeaderButton to="/submit-project">
-                      Submit Project
+                        Submit Project
                       </HeaderButton>
                       <Divider />
                       <HeaderButton to="/blog">
-                      Blog
+                        Blog
                       </HeaderButton>
                       <Divider />
                     </HeaderList>

@@ -10,8 +10,8 @@ export const Bio = () => (
     }}
   >
     <p>
-        We believe in reusable microservices. <br />
-        Learn more at <ExternalLink href="https://blocks.directory">blocks.directory</ExternalLink>
+      We believe in reusable microservices. <br />
+      Learn more at <ExternalLink href="https://blocks.directory">blocks.directory</ExternalLink>
     </p>
   </div>
 )

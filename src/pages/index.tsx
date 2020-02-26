@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react'
 import { navigate } from '@reach/router'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { CSSTransition } from 'react-transition-group'
 import {
   AppBarLayout,
   TitleBlock,
